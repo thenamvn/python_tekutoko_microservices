@@ -18,34 +18,66 @@ This is a Python backend microservice using FastAPI to process DOCX files, extra
 
 ## API
 
-- POST `/api/v1/process-docx`: Upload DOCX file and get JSON response
-```
-python_tekutoko
-├─ app
-│  ├─ init.py
-│  ├─ main.py
-│  ├─ routes
-│  │  ├─ docx_processor.py
-│  │  └─ init.py
-│  ├─ services
-│  │  ├─ docx_service.py
-│  │  └─ init.py
-│  └─ utils
-│     ├─ image_utils.py
-│     └─ init.py
-├─ code
-│  ├─ lib.py
-│  ├─ output.json
-│  ├─ pandoc-3.8.1-windows-x86_64.msi
-│  ├─ test copy.ipynb
-│  ├─ test.docx
-│  └─ test.py
-├─ docker-compose.yml
-├─ Dockerfile
-├─ readme.md
-├─ requirements.txt
-└─ tests
-   ├─ init.py
-   └─ test_docx_processor.py
+### POST `/api/v1/process-docx`
 
+Uploads a DOCX file, processes it to extract quiz questions, and returns the structured JSON output.
+
+#### Request
+- **Method**: POST
+- **Content-Type**: multipart/form-data
+- **Parameters**:
+  - `file` (required): DOCX file upload (only .docx files allowed)
+  - `request_uuid` (optional): UUID string for request identification (if not provided, a new UUID is generated)
+
+#### Response
+- **Status**: 200 OK
+- **Content-Type**: application/json
+- **Body**:
+
+  ```json
+  {
+    "questions": [
+      {
+        "id": 1,
+        "blocks": [
+          {
+            "type": "text",
+            "content": "Question text here"
+          },
+          {
+            "type": "image",
+            "src": "path/to/image.webp"
+          }
+        ],
+        "options": [
+          {
+            "label": "A",
+            "blocks": [
+              {
+                "type": "text",
+                "content": "Option A text"
+              }
+            ]
+          }
+        ],
+        "correct": "A"
+      }
+    ]
+  }
+   ```
+
+#### Error Responses
+- **400 Bad Request**: Invalid file type or missing file
+- **500 Internal Server Error**: Processing failed
+
+#### Example Request (using curl)
+```bash
+curl -X POST "http://localhost:8000/api/v1/process-docx" \
+  -F "file=@test.docx" \
+  -F "request_uuid=12345678-1234-5678-9012-123456789012"
 ```
+
+#### Notes
+- Outputs are saved in `outputs/{uuid}/` directory.
+- Images are converted to WebP format.
+- UUID is used to organize outputs per request.
