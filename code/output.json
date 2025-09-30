@@ -1,0 +1,4808 @@
+{
+    "questions": [
+        {
+            "id": 1,
+            "blocks": [
+                {
+                    "type": "text",
+                    "content": "Thể tích của khối lập phương cạnh\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image1.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} bằng"
+                }
+            ],
+            "options": [
+                {
+                    "label": "A",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "} \\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image3.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "B",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image4.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "C",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image5.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "D",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image6.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}. \\end{quote}"
+                        }
+                    ]
+                }
+            ],
+            "correct": "A"
+        },
+        {
+            "id": 2,
+            "blocks": [
+                {
+                    "type": "text",
+                    "content": "Cho hàm số\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image7.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} có\nbảng biến thiến như sau:"
+                },
+                {
+                    "type": "image",
+                    "src": "media/image8.png"
+                },
+                {
+                    "type": "text",
+                    "content": "Giá trị cực đại của hàm số đã cho bằng"
+                }
+            ],
+            "options": [
+                {
+                    "label": "A",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "1"
+                        }
+                    ]
+                },
+                {
+                    "label": "B",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "2"
+                        }
+                    ]
+                },
+                {
+                    "label": "C",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "0"
+                        }
+                    ]
+                },
+                {
+                    "label": "D",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "} 5. \\end{quote}"
+                        }
+                    ]
+                }
+            ],
+            "correct": "D"
+        },
+        {
+            "id": 3,
+            "blocks": [
+                {
+                    "type": "text",
+                    "content": "Trong không gian\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image9.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}, cho\nhai điểm\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image10.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} và\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image11.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}.\nVectơ\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image12.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} có\ntọa độ là"
+                }
+            ],
+            "options": [
+                {
+                    "label": "A",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "} \\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image13.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "B",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media/image14.wmf"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "C",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image15.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "D",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image16.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}. \\end{quote}"
+                        }
+                    ]
+                }
+            ],
+            "correct": "A"
+        },
+        {
+            "id": 4,
+            "blocks": [
+                {
+                    "type": "text",
+                    "content": "Cho hàm số\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image17.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} có\nđồ thị như hình vẽ:"
+                },
+                {
+                    "type": "image",
+                    "src": "media/image18.png"
+                },
+                {
+                    "type": "text",
+                    "content": "Hàm số đã cho đồng biến trên khoảng nào dưới đây?"
+                }
+            ],
+            "options": [
+                {
+                    "label": "A",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image19.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "B",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image20.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "C",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image21.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "D",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "} \\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image22.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}. \\end{quote}"
+                        }
+                    ]
+                }
+            ],
+            "correct": "D"
+        },
+        {
+            "id": 5,
+            "blocks": [
+                {
+                    "type": "text",
+                    "content": "Với\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image23.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} và\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image24.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} là\nhai số thực dương tùy ý,\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image25.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}\nbằng"
+                }
+            ],
+            "options": [
+                {
+                    "label": "A",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image26.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "B",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "} \\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image27.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "C",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image28.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "D",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image29.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}. \\end{quote}"
+                        }
+                    ]
+                }
+            ],
+            "correct": "B"
+        },
+        {
+            "id": 6,
+            "blocks": [
+                {
+                    "type": "text",
+                    "content": "Cho\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image30.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} và\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image31.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "},\nkhi đó\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image32.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}\nbằng"
+                }
+            ],
+            "options": [
+                {
+                    "label": "A",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "-3"
+                        }
+                    ]
+                },
+                {
+                    "label": "B",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "12"
+                        }
+                    ]
+                },
+                {
+                    "label": "C",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "} -8"
+                        }
+                    ]
+                },
+                {
+                    "label": "D",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "1. \\end{quote}"
+                        }
+                    ]
+                }
+            ],
+            "correct": "C"
+        },
+        {
+            "id": 7,
+            "blocks": [
+                {
+                    "type": "text",
+                    "content": "Thể tích của khối cầu bán kính\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image33.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}\nbằng"
+                }
+            ],
+            "options": [
+                {
+                    "label": "A",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "} \\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image34.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "B",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image35.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "C",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media/image36.wmf"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "D",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image37.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}. \\end{quote}"
+                        }
+                    ]
+                }
+            ],
+            "correct": "A"
+        },
+        {
+            "id": 8,
+            "blocks": [
+                {
+                    "type": "text",
+                    "content": "Tập nghiệm của phương trình\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image38.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} là"
+                }
+            ],
+            "options": [
+                {
+                    "label": "A",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image39.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "B",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "} \\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image40.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "C",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image41.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "D",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image42.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}. \\end{quote}"
+                        }
+                    ]
+                }
+            ],
+            "correct": "B"
+        },
+        {
+            "id": 9,
+            "blocks": [
+                {
+                    "type": "text",
+                    "content": "Trong không gian\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image43.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "},\nmặt phẳng\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image44.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} có\nphương trình là"
+                }
+            ],
+            "options": [
+                {
+                    "label": "A",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image45.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "B",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image46.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "C",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "} \\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image47.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "D",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image48.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}. \\end{quote}"
+                        }
+                    ]
+                }
+            ],
+            "correct": "C"
+        },
+        {
+            "id": 10,
+            "blocks": [
+                {
+                    "type": "text",
+                    "content": "Họ nguyên hàm của hàm số\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image49.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} là"
+                }
+            ],
+            "options": [
+                {
+                    "label": "A",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image50.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "B",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "} \\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image51.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "C",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image52.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "D",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image53.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}. \\end{quote}"
+                        }
+                    ]
+                }
+            ],
+            "correct": "B"
+        },
+        {
+            "id": 11,
+            "blocks": [
+                {
+                    "type": "text",
+                    "content": "Trong không gian\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image54.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "},\nđường thẳng\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image55.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} đi\nqua điểm nào dưới đây?"
+                }
+            ],
+            "options": [
+                {
+                    "label": "A",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image56.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "B",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image57.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "C",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "} \\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image58.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "D",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image59.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}. \\end{quote}"
+                        }
+                    ]
+                }
+            ],
+            "correct": "C"
+        },
+        {
+            "id": 12,
+            "blocks": [
+                {
+                    "type": "text",
+                    "content": "Với\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image60.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} và\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image61.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} là\nhai số nguyên dương tùy ý thỏa mãn\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image62.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "},\nmệnh đề nào dưới đây đúng?"
+                }
+            ],
+            "options": [
+                {
+                    "label": "A",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "} \\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image63.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "B",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image64.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "C",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image65.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "D",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image66.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}. \\end{quote}"
+                        }
+                    ]
+                }
+            ],
+            "correct": "A"
+        },
+        {
+            "id": 13,
+            "blocks": [
+                {
+                    "type": "text",
+                    "content": "Cho cấp số cộng\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image67.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} có\nsố hạng đầu\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image68.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} và\ncông sai\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image69.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}.\nGiá trị của\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image70.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}\nbằng"
+                }
+            ],
+            "options": [
+                {
+                    "label": "A",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "22"
+                        }
+                    ]
+                },
+                {
+                    "label": "B",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "} 17"
+                        }
+                    ]
+                },
+                {
+                    "label": "C",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "12"
+                        }
+                    ]
+                },
+                {
+                    "label": "D",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "250. \\end{quote}"
+                        }
+                    ]
+                }
+            ],
+            "correct": "B"
+        },
+        {
+            "id": 14,
+            "blocks": [
+                {
+                    "type": "text",
+                    "content": "Điểm nào trong hình vẽ dưới đây là điểm biểu diễn số\nphức\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image71.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}?"
+                },
+                {
+                    "type": "image",
+                    "src": "media/image72.png"
+                }
+            ],
+            "options": [
+                {
+                    "label": "A",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image73.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "B",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image74.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "C",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image75.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "D",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "} \\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image76.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}. \\end{quote}"
+                        }
+                    ]
+                }
+            ],
+            "correct": "D"
+        },
+        {
+            "id": 15,
+            "blocks": [
+                {
+                    "type": "text",
+                    "content": "Đường cong trong hình vẽ dưới đây là đồ thị của hàm số\nnào dưới đây?"
+                },
+                {
+                    "type": "image",
+                    "src": "media/image77.png"
+                }
+            ],
+            "options": [
+                {
+                    "label": "A",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image78.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "B",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "} \\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image79.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "C",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image80.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "D",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image81.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}. \\end{quote}"
+                        }
+                    ]
+                }
+            ],
+            "correct": "B"
+        },
+        {
+            "id": 16,
+            "blocks": [
+                {
+                    "type": "text",
+                    "content": "Cho hàm số\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image82.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}\nliên tục trên đoạn\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image83.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} và\ncó đồ thị như hình vẽ dưới đây:"
+                },
+                {
+                    "type": "image",
+                    "src": "media/image84.jpeg"
+                },
+                {
+                    "type": "text",
+                    "content": "Gọi \\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image85.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}\nvà \\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image86.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}\nlần lượt là giá trị lớn nhất và nhỏ nhất của hàm số đã cho trên đoạn\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image83.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}.\nGiá trị của\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image87.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}\nbằng"
+                }
+            ],
+            "options": [
+                {
+                    "label": "A",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "0"
+                        }
+                    ]
+                },
+                {
+                    "label": "B",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "1"
+                        }
+                    ]
+                },
+                {
+                    "label": "C",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "4"
+                        }
+                    ]
+                },
+                {
+                    "label": "D",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "} 5. \\end{quote}"
+                        }
+                    ]
+                }
+            ],
+            "correct": "D"
+        },
+        {
+            "id": 17,
+            "blocks": [
+                {
+                    "type": "text",
+                    "content": "Cho hàm số\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image88.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} có\nđạo hàm\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image89.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}. Số\nđiểm cực trị của hàm số đã cho là"
+                }
+            ],
+            "options": [
+                {
+                    "label": "A",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "} 3"
+                        }
+                    ]
+                },
+                {
+                    "label": "B",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "2"
+                        }
+                    ]
+                },
+                {
+                    "label": "C",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "5"
+                        }
+                    ]
+                },
+                {
+                    "label": "D",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "1. \\end{quote}"
+                        }
+                    ]
+                }
+            ],
+            "correct": "A"
+        },
+        {
+            "id": 18,
+            "blocks": [
+                {
+                    "type": "text",
+                    "content": "Tìm các số thực\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image90.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} và\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image91.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}\nthỏa mãn\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image92.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} với\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image93.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} là\nđơn vị ảo."
+                }
+            ],
+            "options": [
+                {
+                    "label": "A",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image94.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "B",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image95.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "C",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image96.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "D",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "} \\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image97.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}. \\end{quote}"
+                        }
+                    ]
+                }
+            ],
+            "correct": "D"
+        },
+        {
+            "id": 19,
+            "blocks": [
+                {
+                    "type": "text",
+                    "content": "Trong không gian\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image98.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "},\ncho hai điểm\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image99.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} và\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image100.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}.\nPhương trình của mặt cầu có tâm\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image101.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} và\nđi qua\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image102.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} là"
+                }
+            ],
+            "options": [
+                {
+                    "label": "A",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media/image103.wmf"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "B",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "} \\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image104.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "C",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image105.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "D",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image106.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}. \\end{quote}"
+                        }
+                    ]
+                }
+            ],
+            "correct": "B"
+        },
+        {
+            "id": 20,
+            "blocks": [
+                {
+                    "type": "text",
+                    "content": "Đặt\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image107.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "},\nkhi đó\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image108.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}\nbằng"
+                }
+            ],
+            "options": [
+                {
+                    "label": "A",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image109.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "B",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "} \\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image110.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "C",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image111.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "D",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image112.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}. \\end{quote}"
+                        }
+                    ]
+                }
+            ],
+            "correct": "B"
+        },
+        {
+            "id": 21,
+            "blocks": [
+                {
+                    "type": "text",
+                    "content": "Cho\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image113.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} là\nhai nghiệm phức của phương trình\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image114.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}.\nGiá trị của\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image115.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}\nbằng"
+                }
+            ],
+            "options": [
+                {
+                    "label": "A",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "} \\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image116.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "B",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image117.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "C",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "3"
+                        }
+                    ]
+                },
+                {
+                    "label": "D",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "10. \\end{quote}"
+                        }
+                    ]
+                }
+            ],
+            "correct": "A"
+        },
+        {
+            "id": 22,
+            "blocks": [
+                {
+                    "type": "text",
+                    "content": "Trong không gian\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image118.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "},\nkhoảng cách giữa hai mặt phẳng\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image119.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} và\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image120.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}\nbằng"
+                }
+            ],
+            "options": [
+                {
+                    "label": "A",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image121.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "B",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "} \\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image122.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "C",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "3"
+                        }
+                    ]
+                },
+                {
+                    "label": "D",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image123.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}. \\end{quote}"
+                        }
+                    ]
+                }
+            ],
+            "correct": "B"
+        },
+        {
+            "id": 23,
+            "blocks": [
+                {
+                    "type": "text",
+                    "content": "Tập hợp nghiệm của bất phương trình\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image124.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} là"
+                }
+            ],
+            "options": [
+                {
+                    "label": "A",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image125.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "B",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image126.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "C",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "} \\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image127.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "D",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image128.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}. \\end{quote}"
+                        }
+                    ]
+                }
+            ],
+            "correct": "C"
+        },
+        {
+            "id": 24,
+            "blocks": [
+                {
+                    "type": "text",
+                    "content": "Diện tích phần hình phẳng gạch chéo trong hình vẽ được\ntính theo công thức nào dưới đây?"
+                },
+                {
+                    "type": "image",
+                    "src": "media/image129.png"
+                }
+            ],
+            "options": [
+                {
+                    "label": "A",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image130.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "B",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image131.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "C",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image132.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "D",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "} \\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image133.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}. \\end{quote}"
+                        }
+                    ]
+                }
+            ],
+            "correct": "D"
+        },
+        {
+            "id": 25,
+            "blocks": [
+                {
+                    "type": "text",
+                    "content": "Cho khối nón có độ dài đường sinh bằng\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image134.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} và\nbán kính đáy bằng\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image135.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}.\nThể tích của khối nón đã cho bằng"
+                }
+            ],
+            "options": [
+                {
+                    "label": "A",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "} \\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image136.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "B",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image137.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "C",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image138.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "D",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image139.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}. \\end{quote}"
+                        }
+                    ]
+                }
+            ],
+            "correct": "A"
+        },
+        {
+            "id": 26,
+            "blocks": [
+                {
+                    "type": "text",
+                    "content": "Cho hàm số\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image140.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} có\nbảng biến thiên như sau:"
+                },
+                {
+                    "type": "image",
+                    "src": "media/image141.png"
+                },
+                {
+                    "type": "text",
+                    "content": "Tổng số tiệm cận ngang và tiệm cận đứng của đồ thị hàm số đã cho là"
+                }
+            ],
+            "options": [
+                {
+                    "label": "A",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "4"
+                        }
+                    ]
+                },
+                {
+                    "label": "B",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "1"
+                        }
+                    ]
+                },
+                {
+                    "label": "C",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "} 3"
+                        }
+                    ]
+                },
+                {
+                    "label": "D",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "2. \\end{quote}"
+                        }
+                    ]
+                }
+            ],
+            "correct": "C"
+        },
+        {
+            "id": 27,
+            "blocks": [
+                {
+                    "type": "text",
+                    "content": "Cho khối chóp tứ giác đều có tất cả các cạnh bằng\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media/image142.wmf"
+                },
+                {
+                    "type": "text",
+                    "content": "}.\nThể tích của khối chóp đã cho bằng"
+                }
+            ],
+            "options": [
+                {
+                    "label": "A",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "} \\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image143.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "B",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image144.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "C",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image145.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "D",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image146.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}. \\end{quote}"
+                        }
+                    ]
+                }
+            ],
+            "correct": "A"
+        },
+        {
+            "id": 28,
+            "blocks": [
+                {
+                    "type": "text",
+                    "content": "Hàm số\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image147.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} có\nđạo hàm"
+                }
+            ],
+            "options": [
+                {
+                    "label": "A",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image148.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "B",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image149.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "C",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media/image150.wmf"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "D",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "} \\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image151.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}. \\end{quote}"
+                        }
+                    ]
+                }
+            ],
+            "correct": "D"
+        },
+        {
+            "id": 29,
+            "blocks": [
+                {
+                    "type": "text",
+                    "content": "Cho hàm số\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image152.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} có\nbảng biến thiên như sau:"
+                },
+                {
+                    "type": "image",
+                    "src": "media/image153.png"
+                },
+                {
+                    "type": "text",
+                    "content": "Số nghiệm thực của phương trình\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image154.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} là"
+                }
+            ],
+            "options": [
+                {
+                    "label": "A",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "} 4"
+                        }
+                    ]
+                },
+                {
+                    "label": "B",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "3"
+                        }
+                    ]
+                },
+                {
+                    "label": "C",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "2"
+                        }
+                    ]
+                },
+                {
+                    "label": "D",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "1. \\end{quote}"
+                        }
+                    ]
+                }
+            ],
+            "correct": "A"
+        },
+        {
+            "id": 30,
+            "blocks": [
+                {
+                    "type": "text",
+                    "content": "Cho hình lập phương\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image155.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}.\nGóc giữa hai mặt phẳng\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image156.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} và\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image157.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}\nbằng"
+                }
+            ],
+            "options": [
+                {
+                    "label": "A",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image158.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "B",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image159.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "C",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image160.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "D",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "} \\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image161.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}. \\end{quote}"
+                        }
+                    ]
+                }
+            ],
+            "correct": "D"
+        },
+        {
+            "id": 31,
+            "blocks": [
+                {
+                    "type": "text",
+                    "content": "Tổng tất cả các nghiệm của phương trình\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image162.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}\nbằng"
+                }
+            ],
+            "options": [
+                {
+                    "label": "A",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "} 2"
+                        }
+                    ]
+                },
+                {
+                    "label": "B",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "1"
+                        }
+                    ]
+                },
+                {
+                    "label": "C",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "7"
+                        }
+                    ]
+                },
+                {
+                    "label": "D",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "3. \\end{quote}"
+                        }
+                    ]
+                }
+            ],
+            "correct": "A"
+        },
+        {
+            "id": 32,
+            "blocks": [
+                {
+                    "type": "text",
+                    "content": "Một khối đồ chơi gồm hai khối trụ\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image163.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "},\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image164.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}\nxếp chồng lên nhau, lần lượt có bán kính đáy và chiều cao tương ứng là\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media/image165.wmf"
+                },
+                {
+                    "type": "text",
+                    "content": "}\nthỏa mãn\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image166.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "},\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image167.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}\n(tham khảo hình vẽ):"
+                },
+                {
+                    "type": "image",
+                    "src": "media/image168.png"
+                },
+                {
+                    "type": "text",
+                    "content": "Biết rằng thể tích của toàn bộ khối đồ chơi bằng 30\ncm\\textsuperscript{3}, thể tích khối trụ\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image169.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}\nbằng"
+                }
+            ],
+            "options": [
+                {
+                    "label": "A",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "24 cm\\textsuperscript{3}"
+                        }
+                    ]
+                },
+                {
+                    "label": "B",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "15 cm\\textsuperscript{3}"
+                        }
+                    ]
+                },
+                {
+                    "label": "C",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "} 20 cm\\textsuperscript{3}"
+                        }
+                    ]
+                },
+                {
+                    "label": "D",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "10 cm\\textsuperscript{3}. \\end{quote}"
+                        }
+                    ]
+                }
+            ],
+            "correct": "C"
+        },
+        {
+            "id": 33,
+            "blocks": [
+                {
+                    "type": "text",
+                    "content": "Họ nguyên hàm của hàm số\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image170.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} là"
+                }
+            ],
+            "options": [
+                {
+                    "label": "A",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image171.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "B",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image172.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "C",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image173.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "D",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "} \\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media/image174.wmf"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}. \\end{quote}"
+                        }
+                    ]
+                }
+            ],
+            "correct": "D"
+        },
+        {
+            "id": 34,
+            "blocks": [
+                {
+                    "type": "text",
+                    "content": "Cho hình chóp\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media/image175.wmf"
+                },
+                {
+                    "type": "text",
+                    "content": "} có\nđáy là hình thoi cạnh\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image176.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "},"
+                },
+                {
+                    "type": "math",
+                    "content": "\\(\\widehat{BAD} = 60{^\\circ}\\)"
+                },
+                {
+                    "type": "text",
+                    "content": ",\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image177.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} và\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image178.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}\nvuông góc với mặt phẳng đáy. Khoảng cách từ\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media/image179.wmf"
+                },
+                {
+                    "type": "text",
+                    "content": "}\nđến mặt phẳng\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image180.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}\nbằng"
+                }
+            ],
+            "options": [
+                {
+                    "label": "A",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "} \\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image181.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "B",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image182.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "C",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image183.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "D",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image184.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}. \\end{quote}"
+                        }
+                    ]
+                }
+            ],
+            "correct": "A"
+        },
+        {
+            "id": 35,
+            "blocks": [
+                {
+                    "type": "text",
+                    "content": "Trong không gian\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image185.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "},\ncho mặt phẳng\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image186.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} và\nđường thẳng\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image187.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}\nHình chiếu vuông góc của\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image188.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}\ntrên\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image189.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} có\nphương trình là"
+                }
+            ],
+            "options": [
+                {
+                    "label": "A",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image190.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "B",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image191.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "C",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "} \\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image192.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "D",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image193.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "} \\end{quote}"
+                        }
+                    ]
+                }
+            ],
+            "correct": "C"
+        },
+        {
+            "id": 36,
+            "blocks": [
+                {
+                    "type": "text",
+                    "content": "Tập hợp tất cả các giá trị thực của tham số\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media/image194.wmf"
+                },
+                {
+                    "type": "text",
+                    "content": "} để\nhàm số\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image195.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}\nnghịch biến trên khoảng\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image196.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} là"
+                }
+            ],
+            "options": [
+                {
+                    "label": "A",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image197.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "B",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image198.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "C",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "} \\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image199.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "D",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image200.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}. \\end{quote}"
+                        }
+                    ]
+                }
+            ],
+            "correct": "C"
+        },
+        {
+            "id": 37,
+            "blocks": [
+                {
+                    "type": "text",
+                    "content": "Xét các số phức\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image201.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}\nthỏa mãn\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image202.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} là\nsố thuần ảo. Biết rằng tập hợp tất cả các điểm biểu diễn của\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image203.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} là\nmột đường tròn, tâm của đường tròn đó có tọa độ là"
+                }
+            ],
+            "options": [
+                {
+                    "label": "A",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image204.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "B",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image205.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "C",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image206.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "D",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "} \\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image207.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}. \\end{quote}"
+                        }
+                    ]
+                }
+            ],
+            "correct": "D"
+        },
+        {
+            "id": 38,
+            "blocks": [
+                {
+                    "type": "text",
+                    "content": "Cho\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image208.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}\nvới\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image209.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} là\ncác số hữu tỉ. Giá trị của\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image210.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}\nbằng"
+                }
+            ],
+            "options": [
+                {
+                    "label": "A",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "-2"
+                        }
+                    ]
+                },
+                {
+                    "label": "B",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "} -1"
+                        }
+                    ]
+                },
+                {
+                    "label": "C",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "2"
+                        }
+                    ]
+                },
+                {
+                    "label": "D",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "1. \\end{quote}"
+                        }
+                    ]
+                }
+            ],
+            "correct": "B"
+        },
+        {
+            "id": 39,
+            "blocks": [
+                {
+                    "type": "text",
+                    "content": "Cho hàm số\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image211.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}.\nHàm số\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image212.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} có\nbảng biến thiên như sau:"
+                },
+                {
+                    "type": "image",
+                    "src": "media/image213.png"
+                },
+                {
+                    "type": "text",
+                    "content": "Bất phương trình\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image214.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}\nđúng với mọi\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image215.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}\nkhi và chỉ khi"
+                }
+            ],
+            "options": [
+                {
+                    "label": "A",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image216.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "B",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image217.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "C",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "} \\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image218.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "D",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image219.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "} \\end{quote}"
+                        }
+                    ]
+                }
+            ],
+            "correct": "C"
+        },
+        {
+            "id": 40,
+            "blocks": [
+                {
+                    "type": "text",
+                    "content": "Có hai dãy ghế đối diện nhau, mỗi dãy có ba ghế. Xếp\nngẫu nhiên 6 học sinh, gồm 3 nam và 3 nữ, ngồi vào hai dãy ghế đó sao\ncho mỗi ghế có đúng một học sinh ngồi. Xác suất để mỗi học sinh nam đều\nngồi đối diện với một học sinh nữ bằng"
+                }
+            ],
+            "options": [
+                {
+                    "label": "A",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "} \\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media/image220.wmf"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "B",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image221.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "C",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image222.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "D",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image223.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}. \\end{quote}"
+                        }
+                    ]
+                }
+            ],
+            "correct": "A"
+        },
+        {
+            "id": 41,
+            "blocks": [
+                {
+                    "type": "text",
+                    "content": "Trong không gian\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image224.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "},\ncho hai điểm\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media/image225.wmf"
+                },
+                {
+                    "type": "text",
+                    "content": "},\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image226.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} và\nmặt phẳng\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image227.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}\nXét\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image228.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} là\nđiểm thay đổi thuộc\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image229.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "},\ngiá trị nhỏ nhất của\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image230.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}\nbằng"
+                }
+            ],
+            "options": [
+                {
+                    "label": "A",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "} 135"
+                        }
+                    ]
+                },
+                {
+                    "label": "B",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "105"
+                        }
+                    ]
+                },
+                {
+                    "label": "C",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "108"
+                        }
+                    ]
+                },
+                {
+                    "label": "D",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "145. \\end{quote}"
+                        }
+                    ]
+                }
+            ],
+            "correct": "A"
+        },
+        {
+            "id": 42,
+            "blocks": [
+                {
+                    "type": "text",
+                    "content": "Có bao nhiêu số phức\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image231.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}\nthỏa mãn\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image232.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} và\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image233.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}?"
+                }
+            ],
+            "options": [
+                {
+                    "label": "A",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "4"
+                        }
+                    ]
+                },
+                {
+                    "label": "B",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "} 3"
+                        }
+                    ]
+                },
+                {
+                    "label": "C",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "1"
+                        }
+                    ]
+                },
+                {
+                    "label": "D",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "2. \\end{quote}"
+                        }
+                    ]
+                }
+            ],
+            "correct": "B"
+        },
+        {
+            "id": 43,
+            "blocks": [
+                {
+                    "type": "text",
+                    "content": "Cho hàm số\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image234.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}\nliên tục trên\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media/image235.wmf"
+                },
+                {
+                    "type": "text",
+                    "content": "} và\ncó đồ thị như hình vẽ:"
+                },
+                {
+                    "type": "image",
+                    "src": "media/image236.png"
+                },
+                {
+                    "type": "text",
+                    "content": "Tập hợp tất cả các giá trị thực của tham số\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image237.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} để\nphương trình\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image238.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} có\nnghiệm thuộc khoảng\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image239.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} là"
+                }
+            ],
+            "options": [
+                {
+                    "label": "A",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image240.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "B",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image241.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "C",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image242.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "D",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "} \\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image243.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}. \\end{quote}"
+                        }
+                    ]
+                }
+            ],
+            "correct": "D"
+        },
+        {
+            "id": 44,
+            "blocks": [
+                {
+                    "type": "text",
+                    "content": "Ông A vay ngân hàng 100 triệu đồng với lãi suất\n1\\%/tháng. Ông ta muốn hoàn nợ cho ngân hàng theo cách: Sau đúng một\ntháng kể từ ngày vay, ông bắt đầu hoàn nợ; hai lần hoàn nợ liên tiếp\ncách nhau đúng một tháng, số tiền hoàn nợ ở mỗi tháng là như nhau và ông\nA trả hết nợ sau đúng 5 năm kể từ ngày vay. Biết rằng mỗi tháng ngân\nhàng chỉ tính lãi trên số dư nợ thực tế của tháng đó. Hỏi số tiền mỗi\ntháng ông ta cần trả cho ngân hàng \\textbf{gần nhất} với số tiền nào\ndưới đây?"
+                }
+            ],
+            "options": [
+                {
+                    "label": "A",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "} 2,22 triệu đồng"
+                        }
+                    ]
+                },
+                {
+                    "label": "B",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "3,03 triệu đồng"
+                        }
+                    ]
+                },
+                {
+                    "label": "C",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "2,25 triệu đồng"
+                        }
+                    ]
+                },
+                {
+                    "label": "D",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "2,20 triệu đồng. \\end{quote}"
+                        }
+                    ]
+                }
+            ],
+            "correct": "A"
+        },
+        {
+            "id": 45,
+            "blocks": [
+                {
+                    "type": "text",
+                    "content": "Trong không gian\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image244.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "},\ncho điểm\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image245.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "},\nmặt phẳng\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image246.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} và\nmặt cầu\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image247.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}\nGọi\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image248.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} là\nđường thẳng đi qua\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image249.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "},\nnằm trong\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image250.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} và\ncắt\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image251.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}\ntại hai điểm có khoảng cách nhỏ nhất. Phương trình của\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image252.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} là"
+                }
+            ],
+            "options": [
+                {
+                    "label": "A",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image253.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "B",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image254.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "C",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "} \\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image255.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "D",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image256.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "} \\end{quote}"
+                        }
+                    ]
+                }
+            ],
+            "correct": "C"
+        },
+        {
+            "id": 46,
+            "blocks": [
+                {
+                    "type": "text",
+                    "content": "Một biển quảng cáo có dạng hình elip với bốn đỉnh\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image257.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}\nnhư hình vẽ:"
+                },
+                {
+                    "type": "image",
+                    "src": "media/image258.png"
+                },
+                {
+                    "type": "text",
+                    "content": "Biết chi phí để sơn phần tô đậm là\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image259.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}\nđồng/m\\textsuperscript{2} và phần còn lại là\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image260.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}\nđồng/m\\textsuperscript{2}. Hỏi số tiền để sơn theo cách trên \\textbf{gần\nnhất} với số tiền nào dưới đây, biết\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image261.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} m,\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image262.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} m\nvà tứ giác\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image263.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} là\nhình chữ nhật có\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media/image264.wmf"
+                },
+                {
+                    "type": "text",
+                    "content": "} m?"
+                }
+            ],
+            "options": [
+                {
+                    "label": "A",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "} \\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image265.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "} đồng"
+                        }
+                    ]
+                },
+                {
+                    "label": "B",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image266.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "} đồng"
+                        }
+                    ]
+                },
+                {
+                    "label": "C",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image267.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "} đồng"
+                        }
+                    ]
+                },
+                {
+                    "label": "D",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image268.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "} đồng. \\end{quote}"
+                        }
+                    ]
+                }
+            ],
+            "correct": "A"
+        },
+        {
+            "id": 47,
+            "blocks": [
+                {
+                    "type": "text",
+                    "content": "Cho khối lăng trụ\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image269.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} có\nthể tích bằng 1. Gọi\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image270.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}\nlần lượt là trung điểm của các đoạn thẳng\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image271.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} và\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image272.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}.\nĐường thẳng\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image273.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}\ncắt đường thẳng\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image274.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}\ntại\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image275.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}\nđường thẳng\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image276.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}\ncắt đường thẳng\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image277.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}\ntại\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image278.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}\nThể tích của khối đa diện lồi\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image279.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}\nbằng"
+                }
+            ],
+            "options": [
+                {
+                    "label": "A",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "1"
+                        }
+                    ]
+                },
+                {
+                    "label": "B",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image280.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "C",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image281.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "D",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "} \\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image282.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "} \\end{quote}"
+                        }
+                    ]
+                }
+            ],
+            "correct": "D"
+        },
+        {
+            "id": 48,
+            "blocks": [
+                {
+                    "type": "text",
+                    "content": "Cho hàm số\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image283.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} có\nbảng xét dấu của đạo hàm như sau:"
+                },
+                {
+                    "type": "image",
+                    "src": "media/image284.png"
+                },
+                {
+                    "type": "text",
+                    "content": "Hàm số\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image285.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}\nđồng biến trên khoảng nào dưới đây?"
+                }
+            ],
+            "options": [
+                {
+                    "label": "A",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image286.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "B",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image287.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "C",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "} \\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image288.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "D",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image289.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "} \\end{quote}"
+                        }
+                    ]
+                }
+            ],
+            "correct": "C"
+        },
+        {
+            "id": 49,
+            "blocks": [
+                {
+                    "type": "text",
+                    "content": "Gọi\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image290.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} là\ntập hợp tất cả các giá trị của tham số\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image291.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} để\nbất phương trình\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image292.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}\nđúng với mọi\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image293.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}.\nTổng giá trị của tất cả các phần tử thuộc\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image294.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}\nbằng"
+                }
+            ],
+            "options": [
+                {
+                    "label": "A",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image295.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "B",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "1"
+                        }
+                    ]
+                },
+                {
+                    "label": "C",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "} \\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image296.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "}"
+                        }
+                    ]
+                },
+                {
+                    "label": "D",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "\\pandocbounded{"
+                        },
+                        {
+                            "type": "image",
+                            "src": "media\\image297.webp"
+                        },
+                        {
+                            "type": "text",
+                            "content": "} \\end{quote}"
+                        }
+                    ]
+                }
+            ],
+            "correct": "C"
+        },
+        {
+            "id": 50,
+            "blocks": [
+                {
+                    "type": "text",
+                    "content": "Cho hàm số\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image298.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "}\nHàm số\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media\\image299.webp"
+                },
+                {
+                    "type": "text",
+                    "content": "} có\nđồ thị như hình vẽ:"
+                },
+                {
+                    "type": "image",
+                    "src": "media/image300.png"
+                },
+                {
+                    "type": "text",
+                    "content": "Tập nghiệm của phương trình\n\\pandocbounded{"
+                },
+                {
+                    "type": "image",
+                    "src": "media/image301.wmf"
+                },
+                {
+                    "type": "text",
+                    "content": "} có\nsố phần tử là"
+                }
+            ],
+            "options": [
+                {
+                    "label": "A",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "4"
+                        }
+                    ]
+                },
+                {
+                    "label": "B",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "} 3"
+                        }
+                    ]
+                },
+                {
+                    "label": "C",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "1"
+                        }
+                    ]
+                },
+                {
+                    "label": "D",
+                    "blocks": [
+                        {
+                            "type": "text",
+                            "content": "2. \\end{quote}"
+                        }
+                    ]
+                }
+            ],
+            "correct": "B"
+        }
+    ]
+}

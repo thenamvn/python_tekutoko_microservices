@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+pydantic
+python-docx
+pypandoc
+pillow
+sqlalchemy
+pytest
+aiofiles
+python-multipart
