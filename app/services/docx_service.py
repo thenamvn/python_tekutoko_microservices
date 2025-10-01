@@ -4,11 +4,8 @@ import json
 import os
 import re
 import pypandoc
-import subprocess
 from docx import Document
-import concurrent.futures
 import aiofiles
-import uuid
 from fastapi import UploadFile
 from app.utils.image_utils import ImageUtils
 
@@ -33,6 +30,7 @@ class ProcessResponse(BaseModel):
 class DocxService:
     def __init__(self):
         self.image_utils = ImageUtils()
+        self.base_url = os.getenv("BASE_URL", "http://localhost:8000")
 
     async def process_docx(self, file: UploadFile, request_uuid: str) -> ProcessResponse:
         # Create output directory
@@ -58,7 +56,7 @@ class DocxService:
         questions = self.parse_latex_to_json(latex_content)
         
         # Update image sources
-        self.update_image_srcs(questions, images_map, image_dir)
+        self.update_image_srcs(questions, images_map, image_dir, request_uuid)
         
         # Save JSON
         json_path = os.path.join(output_dir, "output.json")
@@ -137,16 +135,16 @@ class DocxService:
 
         return questions
 
-    def update_image_srcs(self, questions: List[Question], images_map: Dict[str, str], image_dir: str):
+    def update_image_srcs(self, questions: List[Question], images_map: Dict[str, str], request_uuid: str):
         for question in questions:
             for block in question.blocks:
                 if block.type == "image" and block.src:
                     basename = os.path.basename(block.src)
                     if basename in images_map:
-                        block.src = os.path.join(image_dir, images_map[basename])
+                        block.src = f"{self.base_url}/outputs/{request_uuid}/media/{images_map[basename]}"
             for option in question.options:
                 for block in option.blocks:
                     if block.type == "image" and block.src:
                         basename = os.path.basename(block.src)
                         if basename in images_map:
-                            block.src = os.path.join(image_dir, images_map[basename])
+                            block.src = f"{self.base_url}/outputs/{request_uuid}/media/{images_map[basename]}"
