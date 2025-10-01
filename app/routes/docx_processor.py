@@ -1,4 +1,4 @@
-from fastapi import APIRouter, UploadFile, File, HTTPException, Depends
+from fastapi import APIRouter, UploadFile, Form, File, HTTPException, Depends
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel, UUID4
 from typing import List, Optional
@@ -29,7 +29,7 @@ class ProcessResponse(BaseModel):
 @router.post("/process-docx", response_model=ProcessResponse)
 async def process_docx(
     file: UploadFile = File(...),
-    request_uuid: UUID4 = None,
+    request_uuid: UUID4 = Form(None),
     service: DocxService = Depends()
 ):
     if not file.filename.endswith('.docx'):
