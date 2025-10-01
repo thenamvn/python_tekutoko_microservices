@@ -33,41 +33,33 @@ class DocxService:
         self.base_url = os.getenv("BASE_URL", "http://localhost:8000")
 
     async def process_docx(self, file: UploadFile, request_uuid: str) -> ProcessResponse:
-        # Create output directory
         output_dir = os.path.join("outputs", request_uuid)
         os.makedirs(output_dir, exist_ok=True)
         image_dir = os.path.join(output_dir, "media")
         os.makedirs(image_dir, exist_ok=True)
-        
-        # Save uploaded file temporarily
+
         temp_docx_path = os.path.join(output_dir, "temp.docx")
         async with aiofiles.open(temp_docx_path, 'wb') as f:
             content = await file.read()
             await f.write(content)
-        
-        # Extract and convert images
+
         images_map = await self.image_utils.extract_and_convert_images(temp_docx_path, image_dir)
-        
-        # Convert DOCX to LaTeX
+
         tex_path = os.path.join(output_dir, "temp.tex")
         latex_content = self.convert_docx_to_latex(temp_docx_path, tex_path)
-        
-        # Parse LaTeX to JSON
+
         questions = self.parse_latex_to_json(latex_content)
-        
-        # Update image sources
+
         self.update_image_srcs(questions, images_map, image_dir, request_uuid)
-        
-        # Save JSON
+
         json_path = os.path.join(output_dir, "output.json")
         with open(json_path, "w", encoding="utf-8") as f:
             json.dump({"questions": [q.dict() for q in questions]}, f, ensure_ascii=False, indent=4)
-        
-        # Clean up temp files
+
         os.remove(temp_docx_path)
         if os.path.exists(tex_path):
             os.remove(tex_path)
-        
+
         return ProcessResponse(questions=questions)
 
     def convert_docx_to_latex(self, docx_path: str, output_tex_path: str) -> str:
@@ -135,16 +127,33 @@ class DocxService:
 
         return questions
 
-    def update_image_srcs(self, questions: List[Question], images_map: Dict[str, str], request_uuid: str):
+    def update_image_srcs(self, questions: List[Question], images_map: Dict[str, str], image_dir: str, request_uuid: str):
         for question in questions:
             for block in question.blocks:
                 if block.type == "image" and block.src:
                     basename = os.path.basename(block.src)
-                    if basename in images_map:
-                        block.src = f"{self.base_url}/outputs/{request_uuid}/media/{images_map[basename]}"
+                    # Prefer webp if exists
+                    for ext in (".wmf", ".emf", ".x-wmf"):
+                        if basename.endswith(ext):
+                            webp_basename = basename.replace(ext, ".webp")
+                            webp_path = os.path.join(image_dir, webp_basename)
+                            if os.path.exists(webp_path):
+                                block.src = f"{self.base_url}/outputs/{request_uuid}/media/{webp_basename}"
+                                break
+                    else:
+                        if basename in images_map:
+                            block.src = f"{self.base_url}/outputs/{request_uuid}/media/{images_map[basename]}"
             for option in question.options:
                 for block in option.blocks:
                     if block.type == "image" and block.src:
                         basename = os.path.basename(block.src)
-                        if basename in images_map:
-                            block.src = f"{self.base_url}/outputs/{request_uuid}/media/{images_map[basename]}"
+                        for ext in (".wmf", ".emf", ".x-wmf"):
+                            if basename.endswith(ext):
+                                webp_basename = basename.replace(ext, ".webp")
+                                webp_path = os.path.join(image_dir, webp_basename)
+                                if os.path.exists(webp_path):
+                                    block.src = f"{self.base_url}/outputs/{request_uuid}/media/{webp_basename}"
+                                    break
+                        else:
+                            if basename in images_map:
+                                block.src = f"{self.base_url}/outputs/{request_uuid}/media/{images_map[basename]}"
