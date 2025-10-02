@@ -25,7 +25,7 @@ class ImageUtils:
                     f.write(image_part.blob)
 
                 final_filename = filename
-                if ext in ["wmf", "emf", "x-wmf"]:
+                if ext in ["wmf", "emf", "x-wmf", "png", "jpg", "jpeg", "gif", "bmp", "tiff"]:
                     webp_filename = filename.rsplit(".", 1)[0] + ".webp"
                     webp_path = os.path.join(image_dir, webp_filename)
                     tasks.append((filepath, webp_path, filename))

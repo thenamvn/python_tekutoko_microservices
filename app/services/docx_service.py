@@ -133,7 +133,7 @@ class DocxService:
                 if block.type == "image" and block.src:
                     basename = os.path.basename(block.src)
                     # Prefer webp if exists
-                    for ext in (".wmf", ".emf", ".x-wmf"):
+                    for ext in (".wmf", ".emf", ".x-wmf", ".png", ".jpg", ".jpeg", ".gif", ".bmp", ".tiff"):
                         if basename.endswith(ext):
                             webp_basename = basename.replace(ext, ".webp")
                             webp_path = os.path.join(image_dir, webp_basename)
@@ -147,7 +147,7 @@ class DocxService:
                 for block in option.blocks:
                     if block.type == "image" and block.src:
                         basename = os.path.basename(block.src)
-                        for ext in (".wmf", ".emf", ".x-wmf"):
+                        for ext in (".wmf", ".emf", ".x-wmf", ".png", ".jpg", ".jpeg", ".gif", ".bmp", ".tiff"):
                             if basename.endswith(ext):
                                 webp_basename = basename.replace(ext, ".webp")
                                 webp_path = os.path.join(image_dir, webp_basename)
