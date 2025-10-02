@@ -1,60 +1,58 @@
 import os
 import subprocess
 import concurrent.futures
-from docx import Document
 from typing import Dict
 
 class ImageUtils:
-    async def extract_and_convert_images(self, docx_path: str, image_dir: str) -> Dict[str, str]:
-        doc = Document(docx_path)
+    def convert_extracted_images(self, image_dir: str = "media") -> Dict[str, str]:
+        """
+        Quét thư mục media, chuyển đổi TẤT CẢ các file ảnh sang định dạng WebP.
+        """
         if not os.path.exists(image_dir):
-            os.makedirs(image_dir)
+            print(f"Lỗi: Thư mục ảnh '{image_dir}' không tồn tại.")
+            return {}
 
-        images_map = {}  # map original filename to final filename
-        tasks = []  # list of (filepath, webp_path, filename)
-        count = 1
-        for rel in doc.part.rels.values():
-            if "image" in rel.target_ref:
-                image_part = rel._target
-                ext = image_part.content_type.split("/")[-1]  # e.g., wmf, png, jpeg
-                filename = f"image{count}.{ext}"
-                filepath = os.path.join(image_dir, filename)
+        images_map = {}
+        tasks = []
 
-                # Write original image
-                with open(filepath, "wb") as f:
-                    f.write(image_part.blob)
+        for filename in os.listdir(image_dir):
+            filepath = os.path.join(image_dir, filename)
+            if not os.path.isfile(filepath):
+                continue
+            
+            # Chuyển đổi TẤT CẢ file thành WebP
+            webp_filename = os.path.splitext(filename)[0] + ".webp"
+            webp_path = os.path.join(image_dir, webp_filename)
+            tasks.append((filepath, webp_path, filename))
 
-                final_filename = filename
-                if ext in ["wmf", "emf", "x-wmf", "png", "jpg", "jpeg", "gif", "bmp", "tiff"]:
-                    webp_filename = filename.rsplit(".", 1)[0] + ".webp"
-                    webp_path = os.path.join(image_dir, webp_filename)
-                    tasks.append((filepath, webp_path, filename))
-                else:
-                    # For other formats, keep as is
-                    pass
-
-                images_map[filename] = final_filename
-                count += 1
-
-        # Multithreaded conversion
-        def convert_task(filepath: str, webp_path: str) -> bool:
+        def convert_task(filepath, webp_path):
+            """Hàm thực hiện chuyển đổi một file ảnh."""
             try:
-                subprocess.run(["magick", filepath, webp_path], check=True)
+                subprocess.run(
+                    ["magick", filepath, webp_path], 
+                    check=True, capture_output=True, text=True
+                )
                 return True
+            except subprocess.CalledProcessError as e:
+                print(f"Lỗi chuyển đổi file {filepath}: {e}\nThông báo lỗi: {e.stderr}")
+                return False
             except Exception as e:
-                print(f"Convert error for {filepath}: {e}")
+                print(f"Lỗi không xác định khi chuyển đổi {filepath}: {e}")
                 return False
 
         with concurrent.futures.ThreadPoolExecutor() as executor:
             results = list(executor.map(lambda t: convert_task(t[0], t[1]), tasks))
 
-        for i, (filepath, webp_path, filename) in enumerate(tasks):
+        for i, (filepath, webp_path, original_filename) in enumerate(tasks):
             if results[i]:
                 final_filename = os.path.basename(webp_path)
-                # Delete the original WMF file after successful conversion
-                os.remove(filepath)
+                images_map[original_filename] = final_filename
+                try:
+                    os.remove(filepath)  # Xóa file gốc
+                except OSError as e:
+                    print(f"Không thể xóa file gốc {filepath}: {e}")
             else:
-                final_filename = filename  # Keep original if failed
-            images_map[filename] = final_filename
+                # Nếu chuyển đổi thất bại, giữ file gốc
+                images_map[original_filename] = original_filename
 
         return images_map

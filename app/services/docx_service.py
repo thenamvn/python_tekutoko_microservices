@@ -4,6 +4,7 @@ import json
 import os
 import re
 import pypandoc
+import shutil
 from docx import Document
 import aiofiles
 from fastapi import UploadFile
@@ -35,22 +36,22 @@ class DocxService:
     async def process_docx(self, file: UploadFile, request_uuid: str) -> ProcessResponse:
         output_dir = os.path.join("outputs", request_uuid)
         os.makedirs(output_dir, exist_ok=True)
-        image_dir = os.path.join(output_dir, "media")
-        os.makedirs(image_dir, exist_ok=True)
-
+        
         temp_docx_path = os.path.join(output_dir, "temp.docx")
         async with aiofiles.open(temp_docx_path, 'wb') as f:
             content = await file.read()
             await f.write(content)
 
-        images_map = await self.image_utils.extract_and_convert_images(temp_docx_path, image_dir)
-
         tex_path = os.path.join(output_dir, "temp.tex")
-        latex_content = self.convert_docx_to_latex(temp_docx_path, tex_path)
+        latex_content = self.convert_docx_to_latex(temp_docx_path, tex_path, output_dir)
+
+        # Đường dẫn thư mục media sẽ được tạo bởi pandoc
+        image_dir = os.path.join(output_dir, "media")
+        images_map = self.image_utils.convert_extracted_images(image_dir)
 
         questions = self.parse_latex_to_json(latex_content)
 
-        self.update_image_srcs(questions, images_map, image_dir, request_uuid)
+        self.update_image_srcs(questions, images_map, request_uuid)
 
         json_path = os.path.join(output_dir, "output.json")
         with open(json_path, "w", encoding="utf-8") as f:
@@ -62,9 +63,16 @@ class DocxService:
 
         return ProcessResponse(questions=questions)
 
-    def convert_docx_to_latex(self, docx_path: str, output_tex_path: str) -> str:
+    def convert_docx_to_latex(self, docx_path: str, output_tex_path: str, output_dir: str) -> str:
         try:
-            pypandoc.convert_file(docx_path, 'latex', outputfile=output_tex_path)
+            # Xóa thư mục media cũ nếu tồn tại
+            media_dir = os.path.join(output_dir, "media")
+            if os.path.exists(media_dir):
+                shutil.rmtree(media_dir)
+            
+            # Sử dụng output_dir làm base directory cho extract-media
+            extra_args = [f'--extract-media={output_dir}']
+            pypandoc.convert_file(docx_path, 'latex', outputfile=output_tex_path, extra_args=extra_args)
             with open(output_tex_path, 'r', encoding='utf-8') as f:
                 return f.read()
         except Exception as e:
@@ -84,7 +92,10 @@ class DocxService:
                 if txt:
                     blocks.append({"type": "text", "content": txt})
             if m.group(1):  # image
-                blocks.append({"type": "image", "src": m.group(1)})
+                # Chỉ lấy tên file, bỏ đường dẫn
+                image_path = m.group(1).replace('./', '')
+                basename = os.path.basename(image_path)
+                blocks.append({"type": "image", "src": basename})
             elif m.group(2):  # math
                 blocks.append({"type": "math", "content": m.group(2)})
             last = end
@@ -127,33 +138,23 @@ class DocxService:
 
         return questions
 
-    def update_image_srcs(self, questions: List[Question], images_map: Dict[str, str], image_dir: str, request_uuid: str):
+    def update_image_srcs(self, questions: List[Question], images_map: Dict[str, str], request_uuid: str):
         for question in questions:
             for block in question.blocks:
                 if block.type == "image" and block.src:
-                    basename = os.path.basename(block.src)
-                    # Prefer webp if exists
-                    for ext in (".wmf", ".emf", ".x-wmf", ".png", ".jpg", ".jpeg", ".gif", ".bmp", ".tiff"):
-                        if basename.endswith(ext):
-                            webp_basename = basename.replace(ext, ".webp")
-                            webp_path = os.path.join(image_dir, webp_basename)
-                            if os.path.exists(webp_path):
-                                block.src = f"{self.base_url}/outputs/{request_uuid}/media/{webp_basename}"
-                                break
+                    original_filename = block.src
+                    if original_filename in images_map:
+                        new_filename = images_map[original_filename]
+                        block.src = f"{self.base_url}/outputs/{request_uuid}/media/{new_filename}"
                     else:
-                        if basename in images_map:
-                            block.src = f"{self.base_url}/outputs/{request_uuid}/media/{images_map[basename]}"
+                        block.src = f"{self.base_url}/outputs/{request_uuid}/media/{original_filename}"
+            
             for option in question.options:
                 for block in option.blocks:
                     if block.type == "image" and block.src:
-                        basename = os.path.basename(block.src)
-                        for ext in (".wmf", ".emf", ".x-wmf", ".png", ".jpg", ".jpeg", ".gif", ".bmp", ".tiff"):
-                            if basename.endswith(ext):
-                                webp_basename = basename.replace(ext, ".webp")
-                                webp_path = os.path.join(image_dir, webp_basename)
-                                if os.path.exists(webp_path):
-                                    block.src = f"{self.base_url}/outputs/{request_uuid}/media/{webp_basename}"
-                                    break
+                        original_filename = block.src
+                        if original_filename in images_map:
+                            new_filename = images_map[original_filename]
+                            block.src = f"{self.base_url}/outputs/{request_uuid}/media/{new_filename}"
                         else:
-                            if basename in images_map:
-                                block.src = f"{self.base_url}/outputs/{request_uuid}/media/{images_map[basename]}"
+                            block.src = f"{self.base_url}/outputs/{request_uuid}/media/{original_filename}"
