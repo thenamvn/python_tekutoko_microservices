@@ -13,7 +13,7 @@ This is a Python backend microservice using FastAPI to process DOCX files, extra
 - Checks user answers and provides scoring results
 
 ## Setup
-
+0. Install Pandoc and ImageMagick
 1. Install dependencies: `pip install -r requirements.txt`
 2. Run locally: `uvicorn app.main:app --reload`
 3. Or use Docker: `docker-compose up`
