@@ -26,7 +26,12 @@ class Question(BaseModel):
 class ProcessResponse(BaseModel):
     questions: List[Question]
 
-@router.post("/process-docx", response_model=ProcessResponse)
+class ProcessDocxResponse(BaseModel):
+    uuid: str
+    status: str
+    message: str
+
+@router.post("/process-docx", response_model=ProcessDocxResponse)
 async def process_docx(
     file: UploadFile = File(...),
     request_uuid: UUID4 = Form(None),
@@ -39,7 +44,7 @@ async def process_docx(
         request_uuid = uuid.uuid4()
     
     try:
-        result = await service.process_docx(file, str(request_uuid))
-        return JSONResponse(content=result.dict())
+        await service.process_docx(file, str(request_uuid))
+        return ProcessDocxResponse(uuid=str(request_uuid), status="success", message="OK")
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Processing failed: {str(e)}")
