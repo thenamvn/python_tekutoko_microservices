@@ -1,10 +1,11 @@
 from fastapi import APIRouter, UploadFile, Form, File, HTTPException, Depends
-from fastapi.responses import JSONResponse
 from pydantic import BaseModel, UUID4
 from typing import List, Optional
+from sqlalchemy.orm import Session
 import uuid
-import os
 from app.services.docx_service import DocxService
+from app.models.database import get_db
+from app.services.database_service import DatabaseService
 
 router = APIRouter()
 
@@ -35,7 +36,10 @@ class ProcessDocxResponse(BaseModel):
 async def process_docx(
     file: UploadFile = File(...),
     request_uuid: UUID4 = Form(None),
-    service: DocxService = Depends()
+    username: str = Form(...),
+    title: str = Form(None),
+    service: DocxService = Depends(),
+    db: Session = Depends(get_db)
 ):
     if not file.filename.endswith('.docx'):
         raise HTTPException(status_code=400, detail="Only DOCX files are allowed")
@@ -44,7 +48,21 @@ async def process_docx(
         request_uuid = uuid.uuid4()
     
     try:
+        # Process DOCX file (questions/answers stored in output.json)
         await service.process_docx(file, str(request_uuid))
-        return ProcessDocxResponse(uuid=str(request_uuid), status="success", message="OK")
+        
+        # Only save basic exam room info to database
+        db_service = DatabaseService(db)
+        db_service.create_test_exam_room(
+            uuid=str(request_uuid),
+            username=username,
+            title=title or file.filename
+        )
+        
+        return ProcessDocxResponse(
+            uuid=str(request_uuid), 
+            status="success", 
+            message="DOCX processed and exam room created successfully"
+        )
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Processing failed: {str(e)}")

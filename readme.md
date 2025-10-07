@@ -143,6 +143,7 @@ Retrieves quiz data by UUID without correct answers for exam taking.
 curl -X GET "http://localhost:8000/api/v1/quiz/12345678-1234-5678-9012-123456789012"
 ```
 
+
 #### Notes
 - Returns quiz data without the `correct` field to prevent cheating
 - Reads from the previously processed outputs/{uuid}/output.json file
@@ -228,6 +229,59 @@ curl -X POST "http://localhost:8000/api/v1/quiz/check-answers" \
     ]
   }'
 ```
+
+### GET `/api/v1/quiz/{quiz_uuid}/results`
+Get LeaderBoard Score
+#### Responses
+```json
+{
+  "exam_uuid": "12345678-1234-5678-9012-123456789012",
+  "total_submissions": 25,
+  "results": [
+    {
+      "student_username": "student1@example.com",
+      "score_percentage": 85.5,
+      "correct_answers": 43,
+      "total_questions": 50,
+      "completed_at": "2025-10-07T10:30:45.123456",
+      "ip_address": "192.168.1.100",
+      "cheating_detected": false,
+      "cheating_reason": null,
+      "exam_cancelled": false,
+      "security_violation_detected": false,
+      "suspicious_activity": {
+        "tabSwitches": 2,
+        "devToolsAttempts": 0,
+        "copyAttempts": 0,
+        "contextMenuAttempts": 0,
+        "keyboardShortcuts": 1
+      }
+    },
+    {
+      "student_username": "student2@example.com", 
+      "score_percentage": 62.0,
+      "correct_answers": 31,
+      "total_questions": 50,
+      "completed_at": "2025-10-07T11:15:30.654321",
+      "ip_address": "192.168.1.101",
+      "cheating_detected": true,
+      "cheating_reason": "Quá nhiều vi phạm bảo mật",
+      "exam_cancelled": true,
+      "security_violation_detected": true,
+      "suspicious_activity": {
+        "tabSwitches": 15,
+        "devToolsAttempts": 5,
+        "copyAttempts": 3,
+        "contextMenuAttempts": 8,
+        "keyboardShortcuts": 12
+      }
+    }
+  ]
+}
+```
+
+### GET `/api/v1/quiz/{quiz_uuid}/{student_username}/results`
+Get score by username and uuid test exam
 
 #### Notes
 - Compares user answers with correct answers from the original quiz data
