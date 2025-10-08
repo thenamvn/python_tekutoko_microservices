@@ -142,7 +142,7 @@ async def check_quiz_answers(
     
     # Check if student already submitted
     if db_service.check_student_submitted(request.quiz_uuid, request.student_username):
-        raise HTTPException(status_code=400, detail="You have already submitted this exam")
+        raise HTTPException(status_code=400, detail="test.submittedBefore")
     
     # Read correct answers from output.json
     project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))

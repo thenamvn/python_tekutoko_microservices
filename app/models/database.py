@@ -1,7 +1,7 @@
 import os
 from sqlalchemy import create_engine, Column, Integer, String, DateTime, Text, ForeignKey, Float, Boolean, JSON
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker, relationship
+from sqlalchemy.orm import sessionmaker
 from sqlalchemy.sql import func
 from dotenv import load_dotenv
 
@@ -34,7 +34,7 @@ class ExamResult(Base):
     __tablename__ = "exam_results"
     
     id = Column(Integer, primary_key=True, index=True)
-    test_exam_uuid = Column(String(36), nullable=False)
+    test_exam_uuid = Column(String(36), ForeignKey("test_exam_rooms.uuid", ondelete="CASCADE"), nullable=False)
     student_username = Column(String(255), nullable=False)
     total_questions = Column(Integer, nullable=False)
     correct_answers = Column(Integer, nullable=False)
