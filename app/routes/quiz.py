@@ -66,6 +66,7 @@ class QuestionResult(BaseModel):
 class CheckAnswersResponse(BaseModel):
     total_questions: int
     correct_answers: int
+    incorrect_answers: int  # Add this field
     score_percentage: float
     results: List[QuestionResult]
     security_notes: Optional[str] = None
@@ -180,6 +181,7 @@ async def check_quiz_answers(
             ))
         
         total_questions = len(request.answers)
+        incorrect_count = total_questions - correct_count  # Calculate incorrect answers
         score_percentage = (correct_count / total_questions * 100) if total_questions > 0 else 0
         
         # Prepare security notes and determine exam status
@@ -249,6 +251,7 @@ async def check_quiz_answers(
         return CheckAnswersResponse(
             total_questions=total_questions,
             correct_answers=correct_count,
+            incorrect_answers=incorrect_count,  # Add this field to response
             score_percentage=round(score_percentage, 2),
             results=results,
             security_notes=security_notes,
@@ -319,6 +322,7 @@ async def get_exam_results(quiz_uuid: str, db: Session = Depends(get_db)):
             for result in results
         ]
     }
+
 @router.get("/quiz/{quiz_uuid}/{student_username}/results")
 async def get_student_exam_result(quiz_uuid: str, student_username: str, db: Session = Depends(get_db)):
     """Get a specific student's exam result for a quiz from database"""
