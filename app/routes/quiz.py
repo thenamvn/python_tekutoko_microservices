@@ -28,6 +28,13 @@ class QuizQuestion(BaseModel):
 class QuizResponse(BaseModel):
     questions: List[QuizQuestion]
 
+class QuizWithExamInfoResponse(BaseModel):
+    exam_uuid: str
+    title: Optional[str]
+    username: str
+    created_at: str
+    questions: List[QuizQuestion]
+
 class UserAnswer(BaseModel):
     question_id: int
     selected_option: str
@@ -77,7 +84,7 @@ class CancelExamRequest(BaseModel):
     student_username: str
     reason: str
 
-@router.get("/quiz/{quiz_uuid}", response_model=QuizResponse)
+@router.get("/quiz/{quiz_uuid}", response_model=QuizWithExamInfoResponse)
 async def get_quiz_data(quiz_uuid: str, db: Session = Depends(get_db)):
     """Get quiz data from output.json without correct answers"""
     try:
@@ -117,7 +124,13 @@ async def get_quiz_data(quiz_uuid: str, db: Session = Depends(get_db)):
                 options=quiz_options
             ))
         
-        return QuizResponse(questions=quiz_questions)
+        return QuizWithExamInfoResponse(
+            exam_uuid=exam_room.uuid,
+            title=exam_room.title,
+            username=exam_room.username,
+            created_at=exam_room.created_at.isoformat(),
+            questions=quiz_questions
+        )
         
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to read quiz data: {str(e)}")
