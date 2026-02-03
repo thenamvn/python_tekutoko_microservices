@@ -47,7 +47,11 @@ class DocxService:
 
         # Đường dẫn thư mục media sẽ được tạo bởi pandoc
         image_dir = os.path.join(output_dir, "media")
-        images_map = self.image_utils.convert_extracted_images(image_dir)
+        
+        if os.path.exists(image_dir):
+            images_map = self.image_utils.convert_extracted_images(image_dir)
+        else:
+            images_map = {}
 
         questions = self.parse_latex_to_json(latex_content)
 
@@ -71,7 +75,7 @@ class DocxService:
                 shutil.rmtree(media_dir)
             
             # Sử dụng output_dir làm base directory cho extract-media
-            extra_args = [f'--extract-media={output_dir}']
+            extra_args = [f'--extract-media={output_dir}', '--wrap=none']
             pypandoc.convert_file(docx_path, 'latex', outputfile=output_tex_path, extra_args=extra_args)
             with open(output_tex_path, 'r', encoding='utf-8') as f:
                 return f.read()
@@ -80,6 +84,9 @@ class DocxService:
 
     def split_blocks(self, text: str) -> List[Dict]:
         blocks = []
+        # Clean up pandoc artefacts
+        text = text.replace(r'\pandocbounded{', '')
+
         pattern = re.compile(
             r'\\includegraphics\[.*?\]\{(.*?)\}'  # image
             r'|(\$.*?\$|\\\(.+?\\\)|\\\[.+?\\\])'  # math
@@ -89,6 +96,9 @@ class DocxService:
             start, end = m.span()
             if start > last:
                 txt = text[last:start].strip()
+                if txt.endswith('}') and not txt.count('{') > txt.count('}'): 
+                     txt = txt[:-1]
+
                 if txt:
                     blocks.append({"type": "text", "content": txt})
             if m.group(1):  # image
@@ -101,29 +111,71 @@ class DocxService:
             last = end
         if last < len(text):
             txt = text[last:].strip()
+            if txt.endswith('}') and not txt.count('{') > txt.count('}'): 
+                 txt = txt[:-1]
             if txt:
                 blocks.append({"type": "text", "content": txt})
         return blocks
 
     def parse_latex_to_json(self, latex_content: str) -> List[Question]:
-        question_blocks = re.split(r'\\textbf\{Câu \d+\:\}', latex_content)[1:]
+        # Cải thiện regex split để bắt được "Câu 1." hoặc "Câu 1:"
+        # Chấp nhận có thể được bọc trong \textbf{} hoặc không
+        # Pattern: (StartBold)? Câu <space> <digit> <dot/colon> (EndBold)?
+        question_blocks = re.split(r'(?:\\textbf\{)?Câu\s+\d+[\.:](?:\})?', latex_content)[1:]
         questions = []
 
+        # Regex tìm đáp án đầu tiên (A. B. C. D.)
+        # Chấp nhận các format: \textbf{A.}, \ul{A.}, \textbf{\ul{A.}}
+        # Ta dùng pattern đơn giản hóa: (các thẻ mở)* ([A-D])\. (các thẻ đóng)*
+        # Tuy nhiên để an toàn, ta tìm kiếm pattern cốt lõi "A." được bọc hoặc không
+        first_option_pattern = re.compile(r'(?:\\textbf\{|\\ul\{|\\underline\{)*([A-D])\.(?:\})*')
+
+        # Regex split options
+        options_split_pattern = re.compile(
+            r'(?:\\textbf\{|\\ul\{|\\underline\{)*([A-D])\.(?:\})*(.*?)(?=(?:\\textbf\{|\\ul\{|\\underline\{)*[A-D]\.(?:\})*|\Z)', 
+            re.DOTALL
+        )
+
         for idx, block in enumerate(question_blocks, 1):
-            parts = re.split(r'\\begin\{quote\}', block, maxsplit=1)
-            question_text = parts[0].strip()
-            options_block = parts[1].split(r'\\end{quote}')[0] if len(parts) > 1 else ""
+            # 1. Xóa các nhiễu format
+            clean_block = block.replace(r'\begin{quote}', '').replace(r'\end{quote}', '')
+            clean_block = clean_block.replace(r'\begin{enumerate}', '').replace(r'\end{enumerate}', '')
+            clean_block = clean_block.replace(r'\item', '')
+
+            # 2. Tìm vị trí xuất hiện đáp án đầu tiên
+            match = first_option_pattern.search(clean_block)
+            
+            if match:
+                start_index = match.start()
+                question_text = clean_block[:start_index].strip()
+                options_block = clean_block[start_index:]
+            else:
+                question_text = clean_block.strip()
+                options_block = ""
 
             blocks = self.split_blocks(question_text)
 
-            option_pattern = re.compile(
-                r'\\textbf\{(\\ul\{)?([A-D])\.}(.*?)(?=(?:\\textbf|\Z))', re.DOTALL)
             options = []
             correct = None
-            for m in option_pattern.finditer(options_block):
-                is_correct = m.group(1) is not None
-                label = m.group(2)
-                opt_content = m.group(3).replace('\n', ' ').strip(' .')
+            
+            # 3. Quét các đáp án
+            for m in options_split_pattern.finditer(options_block):
+                # Group 1: Label (A, B, C, D)
+                label = m.group(1) 
+                # Group 2: Content
+                opt_content = m.group(2).strip()
+                
+                # Check formatted (đơn giản là có label tức là có option)
+                is_correct = False
+                # Logic check correct cũ dựa vào group capture của \ul, giờ ko chắc chắn.
+                # Nếu muốn check correct: thường là đáp án có gạch chân (\ul hoặc \underline)
+                # Ta check trong chuỗi gốc match group 0 xem có chứa \ul hay \underline không
+                full_match = m.group(0) # bao gồm cả label và format prefix
+                # Lấy phần prefix trước label
+                prefix = full_match.split(label + '.')[0]
+                if r'\ul' in prefix or r'\underline' in prefix:
+                     is_correct = True
+
                 opt_blocks = self.split_blocks(opt_content)
                 options.append(Option(label=label, blocks=opt_blocks))
                 if is_correct:

@@ -401,3 +401,48 @@ curl -X GET "http://localhost:8000/api/v1/quiz/12345678-1234-5678-9012-123456789
 - UUID is used to organize outputs per request.
 - Database stores exam rooms and results with security data.
 - Security features include activity logging, violation detection, and exam cancellation.
+
+```
+python_tekutoko
+├─ .pytest_cache
+│  ├─ CACHEDIR.TAG
+│  ├─ README.md
+│  └─ v
+│     └─ cache
+│        ├─ lastfailed
+│        └─ nodeids
+├─ app
+│  ├─ init.py
+│  ├─ main.py
+│  ├─ models
+│  │  └─ database.py
+│  ├─ routes
+│  │  ├─ docx_processor.py
+│  │  ├─ init.py
+│  │  └─ quiz.py
+│  ├─ services
+│  │  ├─ cleanup_service.py
+│  │  ├─ database_service.py
+│  │  ├─ docx_service.py
+│  │  └─ init.py
+│  └─ utils
+│     ├─ image_utils.py
+│     └─ init.py
+├─ code
+│  ├─ lib.py
+│  ├─ output.json
+│  ├─ pandoc-3.8.1-windows-x86_64.msi
+│  ├─ test copy.ipynb
+│  ├─ test.docx
+│  └─ test.py
+├─ docker-compose.yml
+├─ Dockerfile
+├─ prompt.md
+├─ readme.md
+├─ requirements.txt
+├─ test-tekutoko-v2.sql
+└─ tests
+   ├─ init.py
+   └─ test_docx_processor.py
+
+```

@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: docx-processor-deploy
+spec:
+  replicas: 1 # Số lượng bản sao (có thể tăng lên 2, 3 để chịu tải)
+  selector:
+    matchLabels:
+      app: docx-processor
+  template:
+    metadata:
+      labels:
+        app: docx-processor
+    spec:
+      containers:
+      - name: docx-processor
+        image: docx-processor:v1 # Image ta vừa build
+        imagePullPolicy: IfNotPresent # Dùng image local, không tải từ mạng
+        ports:
+        - containerPort: 8000
+        env:
+        - name: DATABASE_URL
+          value: "mysql+pymysql://root:password@host.docker.internal:3306/tekutoko" # Ví dụ kết nối DB localhost
+        - name: BASE_URL
+          value: "http://localhost:30000"
+        volumeMounts:
+        - mountPath: /app/outputs # Đường dẫn trong container
+          name: output-storage
+      volumes:
+      - name: output-storage
+        persistentVolumeClaim:
+          claimName: docx-output-pvc
