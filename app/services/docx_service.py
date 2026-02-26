@@ -60,6 +60,8 @@ class DocxService:
         json_path = os.path.join(output_dir, "output.json")
         with open(json_path, "w", encoding="utf-8") as f:
             json.dump({"questions": [q.dict() for q in questions]}, f, ensure_ascii=False, indent=4)
+            f.flush()  # Force write to disk
+            os.fsync(f.fileno())  # Ensure data is written
 
         os.remove(temp_docx_path)
         if os.path.exists(tex_path):
@@ -87,9 +89,11 @@ class DocxService:
         # Clean up pandoc artefacts
         text = text.replace(r'\pandocbounded{', '')
 
+        # Updated pattern to handle both relative and absolute paths
         pattern = re.compile(
-            r'\\includegraphics\[.*?\]\{(.*?)\}'  # image
-            r'|(\$.*?\$|\\\(.+?\\\)|\\\[.+?\\\])'  # math
+            r'\\includegraphics(?:\[.*?\])?\{([^}]+?)\}'  # Capture any path (relative or absolute)
+            r'|(\$.*?\$|\\\(.+?\\\)|\\\[.+?\\\])',  # math
+            re.DOTALL
         )
         last = 0
         for m in pattern.finditer(text):
@@ -102,9 +106,14 @@ class DocxService:
                 if txt:
                     blocks.append({"type": "text", "content": txt})
             if m.group(1):  # image
-                # Chỉ lấy tên file, bỏ đường dẫn
+                # Extract only the filename, remove full path
                 image_path = m.group(1).replace('./', '')
-                basename = os.path.basename(image_path)
+                # Handle absolute paths like "outputs/uuid/media/imageX.wmf"
+                if '/' in image_path:
+                    # Extract only filename (last part after /)
+                    basename = os.path.basename(image_path)
+                else:
+                    basename = image_path
                 blocks.append({"type": "image", "src": basename})
             elif m.group(2):  # math
                 blocks.append({"type": "math", "content": m.group(2)})
