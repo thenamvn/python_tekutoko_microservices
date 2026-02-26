@@ -135,6 +135,46 @@ curl -X GET "http://localhost:8000/api/v1/quiz/12345678-1234-5678-9012-123456789
 - Reads from the previously processed outputs/{uuid}/output.json file
 - UUID must be from a previously processed DOCX file
 
+### DELETE `/api/v1/test-room/{test_uuid}/{username}`
+
+Deletes a test exam room and all associated data (database records and output files). Only the creator can delete.
+
+#### Request
+- **Method**: DELETE
+- **Parameters**:
+  - `test_uuid` (required, path parameter): UUID string of the test room
+  - `username` (required, path parameter): Username of the creator (for authorization)
+
+#### Response
+- **Status**: 200 OK
+- **Content-Type**: application/json
+- **Body**:
+
+  ```json
+  {
+    "status": "success",
+    "message": "Test room 12345678-1234-5678-9012-123456789012 deleted successfully",
+    "uuid": "12345678-1234-5678-9012-123456789012"
+  }
+  ```
+
+#### Error Responses
+- **400 Bad Request**: Invalid UUID format
+- **404 Not Found**: Test room not found or user is not authorized to delete
+- **500 Internal Server Error**: Deletion failed
+
+#### Example Request (using curl)
+```bash
+curl -X DELETE "http://localhost:8000/api/v1/test-room/12345678-1234-5678-9012-123456789012/creator@example.com"
+```
+
+#### Notes
+- Only the creator (username) who created the test room can delete it
+- Deletes all related exam results from database
+- Removes all files in `outputs/{uuid}/` directory
+- Deletion is permanent and cannot be undone
+- Username is passed as path parameter in URL
+
 ### POST `/api/v1/quiz/check-answers`
 
 Checks user's quiz answers against correct answers and returns scoring results, including security analysis.

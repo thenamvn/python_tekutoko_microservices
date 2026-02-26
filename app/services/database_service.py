@@ -57,6 +57,28 @@ class DatabaseService:
         self.db.refresh(db_exam_result)
         return db_exam_result
 
+    def delete_test_exam_room(self, uuid: str, username: str) -> bool:
+        """
+        Delete test exam room and all related results
+        Only owner (username) can delete
+        Returns True if deleted, False if not found or unauthorized
+        """
+        exam_room = self.db.query(TestExamRoom).filter(
+            TestExamRoom.uuid == uuid,
+            TestExamRoom.username == username  # Verify ownership
+        ).first()
+        
+        if not exam_room:
+            return False
+        
+        # Delete all related exam results first (cascade should handle this, but explicit is better)
+        self.db.query(ExamResult).filter(ExamResult.test_exam_uuid == uuid).delete()
+        
+        # Delete the exam room
+        self.db.delete(exam_room)
+        self.db.commit()
+        return True
+    
     def get_exam_results_by_uuid(self, test_exam_uuid: str) -> List[ExamResult]:
         """Get all exam results for a test"""
         return self.db.query(ExamResult).filter(ExamResult.test_exam_uuid == test_exam_uuid).all()
