@@ -10,3 +10,4 @@ aiofiles
 python-multipart
 pymysql
 APScheduler
+python-dotenv

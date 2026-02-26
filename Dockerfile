@@ -1,30 +1,42 @@
-# Sử dụng Python 3.9 bản slim (nhẹ)
-FROM python:3.9-slim
+# Use Python 3.11 slim for better performance
+FROM python:3.11-slim
 
-# Thiết lập thư mục làm việc
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+# Set working directory
 WORKDIR /app
 
-# 1. Cài đặt các thư viện hệ thống cần thiết (Pandoc, ImageMagick cho Linux)
-RUN apt-get update && apt-get install -y \
+# Install system dependencies (Pandoc, ImageMagick)
+RUN apt-get update && apt-get install -y --no-install-recommends \
     pandoc \
     imagemagick \
     && rm -rf /var/lib/apt/lists/*
 
-# Chỉnh sửa policy của ImageMagick để cho phép convert PDF/DOCX (thường bị chặn mặc định)
-RUN sed -i 's/<policy domain="coder" rights="none" pattern="PDF" \/>/<policy domain="coder" rights="read|write" pattern="PDF" \/>/g' /etc/ImageMagick-6/policy.xml
+# Update ImageMagick policy to allow PDF conversion (works for both ImageMagick 6 and 7)
+RUN if [ -f /etc/ImageMagick-6/policy.xml ]; then \
+        sed -i 's/<policy domain="coder" rights="none" pattern="PDF" \/>/<policy domain="coder" rights="read|write" pattern="PDF" \/>/g' /etc/ImageMagick-6/policy.xml; \
+    elif [ -f /etc/ImageMagick-7/policy.xml ]; then \
+        sed -i 's/<policy domain="coder" rights="none" pattern="PDF" \/>/<policy domain="coder" rights="read|write" pattern="PDF" \/>/g' /etc/ImageMagick-7/policy.xml; \
+    fi
 
-# 2. Copy requirements và cài đặt thư viện Python
+# Copy requirements and install Python dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# 3. Copy toàn bộ code vào
+# Copy application code
 COPY . .
 
-# Tạo thư mục outputs để tránh lỗi permission
-RUN mkdir -p outputs
+# Create outputs directory with proper permissions
+RUN mkdir -p outputs && chmod 755 outputs
 
-# 4. Expose port 8000
+# Expose port
 EXPOSE 8000
 
-# 5. Lệnh chạy app
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+    CMD python -c "import urllib.request; urllib.request.urlopen('http://localhost:8000/')" || exit 1
+
+# Run the application
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
