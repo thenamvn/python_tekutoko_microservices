@@ -1,17 +1,19 @@
 from sqlalchemy.orm import Session
 from typing import List, Optional, Dict, Any
-from app.models.database import TestExamRoom, ExamResult
+from app.models.database import TestExamRoom, ExamResult, ExamTimer
+from datetime import datetime
 
 class DatabaseService:
     def __init__(self, db: Session):
         self.db = db
     
-    def create_test_exam_room(self, uuid: str, username: str, title: Optional[str] = None) -> TestExamRoom:
+    def create_test_exam_room(self, uuid: str, username: str, title: Optional[str] = None, time_limit: Optional[int] = None) -> TestExamRoom:
         """Create a new test exam room record"""
         db_exam_room = TestExamRoom(
             uuid=uuid,
             username=username,
-            title=title
+            title=title,
+            time_limit=time_limit
         )
         self.db.add(db_exam_room)
         self.db.commit()
@@ -113,3 +115,29 @@ class DatabaseService:
             self.db.refresh(result)
         
         return result
+    
+    def create_exam_timer(self, uuid_exam: str, username: str, time_start: datetime) -> ExamTimer:
+        """Create a new exam timer record with time_start from frontend"""
+        db_exam_timer = ExamTimer(
+            uuid_exam=uuid_exam,
+            username=username,
+            time_start=time_start
+        )
+        self.db.add(db_exam_timer)
+        self.db.commit()
+        self.db.refresh(db_exam_timer)
+        return db_exam_timer
+    
+    def get_exam_timer(self, uuid_exam: str, username: str) -> Optional[ExamTimer]:
+        """Get exam timer by exam UUID and username"""
+        return self.db.query(ExamTimer).filter(
+            ExamTimer.uuid_exam == uuid_exam,
+            ExamTimer.username == username
+        ).first()
+    
+    def get_or_create_exam_timer(self, uuid_exam: str, username: str, time_start: datetime) -> ExamTimer:
+        """Get existing exam timer or create new one if not exists"""
+        existing_timer = self.get_exam_timer(uuid_exam, username)
+        if existing_timer:
+            return existing_timer
+        return self.create_exam_timer(uuid_exam, username, time_start)

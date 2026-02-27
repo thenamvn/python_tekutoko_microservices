@@ -58,7 +58,8 @@ Uploads a DOCX file, processes it to extract quiz questions, and creates an exam
 curl -X POST "http://localhost:8000/api/v1/process-docx" \
   -F "file=@test.docx" \
   -F "username=creator@example.com" \
-  -F "title=Sample Exam"
+  -F "title=Sample Exam" \
+  -F "time_limit=60"
 ```
 
 ### GET `/api/v1/quiz/{quiz_uuid}`
@@ -80,6 +81,7 @@ Retrieves quiz data by UUID without correct answers for exam taking, including e
     "exam_uuid": "12345678-1234-5678-9012-123456789012",
     "title": "Sample Exam",
     "username": "creator@example.com",
+    "time_limit": 60,
     "created_at": "2025-10-10T12:00:00.000000",
     "questions": [
       {
@@ -441,6 +443,76 @@ curl -X GET "http://localhost:8000/api/v1/quiz/12345678-1234-5678-9012-123456789
 - UUID is used to organize outputs per request.
 - Database stores exam rooms and results with security data.
 - Security features include activity logging, violation detection, and exam cancellation.
+
+
+## 1. **Table `exam_timer`** đã thêm field `username`:
+```python
+class ExamTimer(Base):
+    __tablename__ = "exam_timer"
+    
+    id = Column(Integer, primary_key=True, index=True)
+    uuid_exam = Column(String(36), ForeignKey(...), nullable=False, index=True)
+    username = Column(String(255), nullable=False, index=True)  # ✅ THÊM MỚI
+    time_start = Column(DateTime(timezone=True), server_default=func.now())
+```
+
+## 2. **Database Service** đã cập nhật:
+- `create_exam_timer()`: Nhận thêm tham số `username`
+- `get_exam_timer()`: Tìm theo cả `uuid_exam` VÀ `username`
+- `get_or_create_exam_timer()`: Method mới để check và tạo nếu chưa tồn tại
+
+## 3. **API `/quiz/start-timer`** đã cập nhật:
+- **Request** bắt buộc phải có `username`
+- **Response** thêm field `is_new` (True = mới tạo, False = đã tồn tại)
+- **Logic**: 
+  - Check nếu đã tồn tại `(uuid_exam, username)` → return thông tin cũ
+  - Nếu chưa có → insert mới và return
+
+## 4. **API GET `/quiz/{quiz_uuid}/timer/{username}`**:
+- Đã thêm `username` vào path parameter
+
+**Example usage:**
+
+```bash
+# Lần 1: Tạo mới timer
+curl -X POST "http://localhost:8000/api/v1/quiz/start-timer" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "uuid_exam": "64d215e7-5a18-45dc-8c03-28c8ea3e25e2",
+    "username": "sdsds@gmail.com",
+    "time_start": "2025-01-10T10:30:00Z"
+  }'
+
+# Response:
+{
+  "id": 1,
+  "uuid_exam": "64d215e7-5a18-45dc-8c03-28c8ea3e25e2",
+  "username": "sdsdsd@gmail.com",
+  "time_start": "2025-01-10T10:30:00+00:00",
+  "message": "Exam timer started successfully",
+  "is_new": true
+}
+
+# Lần 2: Gọi lại với cùng uuid_exam + username
+curl -X POST "http://localhost:8000/api/v1/quiz/start-timer" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "uuid_exam": "64d215e7-5a18-45dc-8c03-28c8ea3e25e2",
+    "username": "dsdsd@gmail.com",
+    "time_start": "2025-01-10T11:00:00Z"
+  }'
+
+# Response: Trả về timer đã tồn tại (giữ nguyên time_start cũ)
+{
+  "id": 1,
+  "uuid_exam": "64d215e7-5a18-45dc-8c03-28c8ea3e25e2",
+  "username": "ntnhacker1@gmail.com",
+  "time_start": "2025-01-10T10:30:00+00:00",  # Vẫn giữ thời gian cũ
+  "message": "Exam timer already exists for this user",
+  "is_new": false
+}
+```
+
 
 ```
 python_tekutoko

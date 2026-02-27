@@ -40,6 +40,7 @@ async def process_docx(
     request_uuid: UUID4 = Form(None),
     username: str = Form(...),
     title: str = Form(None),
+    time_limit: int = Form(None),
     service: DocxService = Depends(),
     db: Session = Depends(get_db)
 ):
@@ -58,7 +59,8 @@ async def process_docx(
         db_service.create_test_exam_room(
             uuid=str(request_uuid),
             username=username,
-            title=title or file.filename
+            title=title or file.filename,
+            time_limit=time_limit
         )
         
         return ProcessDocxResponse(

@@ -27,6 +27,7 @@ class TestExamRoom(Base):
     uuid = Column(String(36), unique=True, index=True, nullable=False)
     username = Column(String(255), nullable=False)
     title = Column(String(255), nullable=True)
+    time_limit = Column(Integer, nullable=True)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())
 
@@ -50,6 +51,14 @@ class ExamResult(Base):
     suspicious_activity = Column(JSON, nullable=True)  # Store suspicious activity counts as JSON
     
     completed_at = Column(DateTime(timezone=True), server_default=func.now())
+
+class ExamTimer(Base):
+    __tablename__ = "exam_timer"
+    
+    id = Column(Integer, primary_key=True, index=True)
+    uuid_exam = Column(String(36), ForeignKey("test_exam_rooms.uuid", ondelete="CASCADE"), nullable=False, index=True)
+    username = Column(String(255), nullable=False, index=True)
+    time_start = Column(DateTime(timezone=True), server_default=func.now())
 
 Base.metadata.create_all(bind=engine)
 

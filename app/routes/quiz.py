@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session
 import uuid
 import json
 import os
-
+from datetime import datetime
 from app.models.database import get_db
 from app.services.database_service import DatabaseService
 
@@ -32,6 +32,7 @@ class QuizWithExamInfoResponse(BaseModel):
     exam_uuid: str
     title: Optional[str]
     username: str
+    time_limit: Optional[int]
     created_at: str
     questions: List[QuizQuestion]
 
@@ -84,6 +85,19 @@ class CancelExamRequest(BaseModel):
     student_username: str
     reason: str
 
+class StartExamTimerRequest(BaseModel):
+    uuid_exam: str
+    username: str
+    time_start: str  # ISO format datetime string, required from frontend
+
+class StartExamTimerResponse(BaseModel):
+    id: int
+    uuid_exam: str
+    username: str
+    time_start: str
+    message: str
+    is_new: bool  # True if newly created, False if already existed
+
 @router.get("/quiz/{quiz_uuid}", response_model=QuizWithExamInfoResponse)
 async def get_quiz_data(quiz_uuid: str, db: Session = Depends(get_db)):
     """Get quiz data from output.json without correct answers"""
@@ -128,6 +142,7 @@ async def get_quiz_data(quiz_uuid: str, db: Session = Depends(get_db)):
             exam_uuid=exam_room.uuid,
             title=exam_room.title,
             username=exam_room.username,
+            time_limit=exam_room.time_limit,
             created_at=exam_room.created_at.isoformat(),
             questions=quiz_questions
         )
@@ -363,4 +378,79 @@ async def get_student_exam_result(quiz_uuid: str, student_username: str, db: Ses
         "security_violation_detected": result.security_violation_detected,
         "suspicious_activity": result.suspicious_activity,
         "activity_log": result.activity_log
+    }
+
+@router.post("/quiz/start-timer", response_model=StartExamTimerResponse)
+async def start_exam_timer(
+    request: StartExamTimerRequest,
+    db: Session = Depends(get_db)
+):
+    """Start exam timer - records when student starts taking the exam. Returns existing timer if already exists."""
+    try:
+        uuid.UUID(request.uuid_exam)
+    except ValueError:
+        raise HTTPException(status_code=400, detail="Invalid UUID format")
+    
+    db_service = DatabaseService(db)
+    
+    # Check if exam room exists
+    exam_room = db_service.get_test_exam_room_by_uuid(request.uuid_exam)
+    if not exam_room:
+        raise HTTPException(status_code=404, detail="Exam room not found")
+    
+    # Parse time_start from frontend (required)
+    try:
+        time_start = datetime.fromisoformat(request.time_start.replace('Z', '+00:00'))
+    except ValueError:
+        raise HTTPException(status_code=400, detail="Invalid datetime format. Use ISO format (e.g., '2025-01-10T10:30:00Z' or '2025-01-10T10:30:00')")
+    
+    # Check if timer already exists for this user and exam
+    existing_timer = db_service.get_exam_timer(request.uuid_exam, request.username)
+    
+    if existing_timer:
+        # Return existing timer
+        return StartExamTimerResponse(
+            id=existing_timer.id,
+            uuid_exam=existing_timer.uuid_exam,
+            username=existing_timer.username,
+            time_start=existing_timer.time_start.isoformat(),
+            message="Exam timer already exists for this user",
+            is_new=False
+        )
+    
+    # Create new exam timer record with time_start from frontend
+    exam_timer = db_service.create_exam_timer(
+        uuid_exam=request.uuid_exam,
+        username=request.username,
+        time_start=time_start
+    )
+    
+    return StartExamTimerResponse(
+        id=exam_timer.id,
+        uuid_exam=exam_timer.uuid_exam,
+        username=exam_timer.username,
+        time_start=exam_timer.time_start.isoformat(),
+        message="Exam timer started successfully",
+        is_new=True
+    )
+
+@router.get("/quiz/{quiz_uuid}/timer/{username}")
+async def get_exam_timer(quiz_uuid: str, username: str, db: Session = Depends(get_db)):
+    """Get exam timer information for a specific user"""
+    try:
+        uuid.UUID(quiz_uuid)
+    except ValueError:
+        raise HTTPException(status_code=400, detail="Invalid UUID format")
+    
+    db_service = DatabaseService(db)
+    exam_timer = db_service.get_exam_timer(quiz_uuid, username)
+    
+    if not exam_timer:
+        raise HTTPException(status_code=404, detail="Exam timer not found")
+    
+    return {
+        "id": exam_timer.id,
+        "uuid_exam": exam_timer.uuid_exam,
+        "username": exam_timer.username,
+        "time_start": exam_timer.time_start.isoformat()
     }
