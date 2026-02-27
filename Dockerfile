@@ -8,12 +8,14 @@ ENV PYTHONUNBUFFERED=1
 # Set working directory
 WORKDIR /app
 
-# Install system dependencies (Pandoc, ImageMagick, Ghostscript for WMF)
+# Install system dependencies (Pandoc, ImageMagick, Ghostscript, LibreOffice for WMF)
 RUN apt-get update && apt-get install -y --no-install-recommends \
     pandoc \
     imagemagick \
     ghostscript \
     libwmf-bin \
+    libreoffice-core \
+    libreoffice-writer \
     && rm -rf /var/lib/apt/lists/*
 
 # Update ImageMagick policy to allow PDF, PS, EPS, XPS conversion (for WMF support)

@@ -19,7 +19,7 @@ app.add_middleware(
 )
 
 # Static files for serving outputs
-app.mount("/outputs", StaticFiles(directory="outputs"), name="outputs")
+app.mount("/api/v1/outputs", StaticFiles(directory="outputs"), name="outputs")
 
 # Include routers
 app.include_router(docx_processor.router, prefix="/api/v1")
