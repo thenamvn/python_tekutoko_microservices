@@ -14,6 +14,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     imagemagick \
     ghostscript \
     libwmf-bin \
+    librsvg2-bin \
     && rm -rf /var/lib/apt/lists/*
 
 # Update ImageMagick policy to allow PDF, PS, EPS, XPS conversion (for WMF support)
