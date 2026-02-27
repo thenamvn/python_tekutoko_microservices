@@ -34,15 +34,41 @@ class ImageUtils:
         def convert_task(filepath, webp_path):
             """Hàm thực hiện chuyển đổi một file ảnh."""
             try:
-                result = subprocess.run(
-                    ["magick", filepath, webp_path], 
-                    check=True, capture_output=True, text=True
-                )
+                # Phát hiện file extension
+                ext = os.path.splitext(filepath)[1].lower()
+                
+                # Nếu là WMF/EMF, dùng density cao để có chất lượng tốt
+                if ext in ['.wmf', '.emf']:
+                    # -density phải đặt TRƯỚC input file
+                    # -background và -alpha đặt SAU input file
+                    result = subprocess.run(
+                        [
+                            "magick",
+                            "-density", "300",      # Đặt TRƯỚC để render ở 300 DPI
+                            filepath,               # Input file
+                            "-background", "white", # Các options xử lý ảnh
+                            "-alpha", "remove",
+                            "-quality", "90",
+                            webp_path
+                        ],
+                        check=True, capture_output=True, text=True, timeout=60
+                    )
+                else:
+                    # Các file ảnh thông thường (PNG, JPG, etc.)
+                    result = subprocess.run(
+                        ["magick", filepath, "-quality", "90", webp_path],
+                        check=True, capture_output=True, text=True, timeout=30
+                    )
+                
                 logger.info(f"Converted {filepath} to {webp_path}")
                 return True
             except subprocess.CalledProcessError as e:
                 logger.error(f"Conversion failed for {filepath}: {e.stderr}")
                 print(f"Lỗi chuyển đổi file {filepath}: {e}\nThông báo lỗi: {e.stderr}")
+                return False
+            except subprocess.TimeoutExpired:
+                logger.error(f"Conversion timeout for {filepath}")
+                print(f"Lỗi: Chuyển đổi {filepath} quá thời gian.")
                 return False
             except Exception as e:
                 logger.error(f"Unexpected error converting {filepath}: {e}")
