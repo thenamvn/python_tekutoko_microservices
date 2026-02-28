@@ -50,7 +50,6 @@ class ImageUtils:
                                 "magick",
                                 "-density", "300",
                                 filepath,
-                                "-background", "white",
                                 "-alpha", "remove",
                                 "-quality", "90",
                                 webp_path
@@ -100,9 +99,7 @@ class ImageUtils:
                             subprocess.run(
                                 [
                                     "rsvg-convert",
-                                    "--width", "2000",
                                     "--keep-aspect-ratio",
-                                    "--background-color", "white",
                                     "--format", "png",
                                     "--output", png_path,
                                     svg_path
