@@ -1,158 +1,200 @@
-import os
-import sys
-import re
-import subprocess
 import concurrent.futures
 import logging
-import tempfile
+import os
 import shutil
-from typing import Dict
+import subprocess
+import sys
+import tempfile
+from typing import Dict, List, Tuple
 
 logger = logging.getLogger(__name__)
 
 IS_WINDOWS = sys.platform == "win32"
 
+# soffice xuất PNG ở 96 DPI mặc định.
+# Upscale lên 3x (= ~288 DPI equivalent) để text/ký hiệu toán sắc nét.
+_SOFFICE_UPSCALE = "300%"
+
+
 class ImageUtils:
     def convert_extracted_images(self, image_dir: str = "media") -> Dict[str, str]:
-        """
-        Quét thư mục media, chuyển đổi TẤT CẢ các file ảnh sang định dạng WebP.
-        """
         if not os.path.exists(image_dir):
-            logger.error(f"Image directory does not exist: {image_dir}")
-            print(f"Lỗi: Thư mục ảnh '{image_dir}' không tồn tại.")
+            logger.error("Image directory does not exist: %s", image_dir)
             return {}
 
-        logger.info(f"Starting image conversion in {image_dir}")
-        images_map = {}
-        tasks = []
+        images_map: Dict[str, str] = {}
+        tasks: List[Tuple[str, str, str]] = []
 
         for filename in os.listdir(image_dir):
             filepath = os.path.join(image_dir, filename)
             if not os.path.isfile(filepath):
                 continue
-            
-            logger.info(f"Processing image: {filename}")
-            # Chuyển đổi TẤT CẢ file thành WebP
-            webp_filename = os.path.splitext(filename)[0] + ".webp"
+            webp_filename = f"{os.path.splitext(filename)[0]}.webp"
             webp_path = os.path.join(image_dir, webp_filename)
             tasks.append((filepath, webp_path, filename))
 
-        def convert_task(filepath, webp_path):
-            """Hàm thực hiện chuyển đổi một file ảnh."""
+        def _convert_wmf_with_soffice(filepath: str, webp_path: str) -> bool:
+            tmp_dir = tempfile.mkdtemp(prefix="lo_")
             try:
-                ext = os.path.splitext(filepath)[1].lower()
+                base_name = os.path.splitext(os.path.basename(filepath))[0]
+                png_path = os.path.join(tmp_dir, f"{base_name}.png")
 
-                if IS_WINDOWS:
-                    # Windows: dùng ImageMagick 7 (magick), hỗ trợ WMF native qua GDI
-                    if ext in ['.wmf', '.emf']:
-                        subprocess.run(
-                            [
-                                "magick",
-                                "-density", "300",
-                                filepath,
-                                "-alpha", "remove",
-                                "-quality", "90",
-                                webp_path
-                            ],
-                            check=True, capture_output=True, text=True, timeout=60
-                        )
-                    else:
-                        subprocess.run(
-                            ["magick", filepath, "-quality", "90", webp_path],
-                            check=True, capture_output=True, text=True, timeout=30
-                        )
-                else:
-                    # Linux (Docker): IM6 dùng `convert`, WMF đi qua wmf2svg + rsvg-convert
-                    if ext in ['.wmf', '.emf']:
-                        tmp_dir = tempfile.mkdtemp()
-                        try:
-                            base = os.path.splitext(os.path.basename(filepath))[0]
-                            svg_path = os.path.join(tmp_dir, base + ".svg")
+                profile_dir = os.path.join(tmp_dir, "profile")
+                os.makedirs(profile_dir, exist_ok=True)
 
-                            # Bước 1: WMF → SVG (wmf2svg từ libwmf-bin)
-                            r1 = subprocess.run(
-                                ["wmf2svg", "-o", svg_path, filepath],
-                                capture_output=True, timeout=30
-                            )
-                            if not os.path.exists(svg_path):
-                                logger.error(f"wmf2svg failed for {filepath}: {r1.stderr}")
-                                return False
+                env = os.environ.copy()
+                env["HOME"] = tmp_dir
+                env["JAVA_HOME"] = "/usr/lib/jvm/default-java"
+                env["JRE_HOME"] = "/usr/lib/jvm/default-java"
+                env["PATH"] = f"{env.get('PATH', '')}:/usr/lib/jvm/default-java/bin"
 
-                            # Fix encoding: wmf2svg có thể tạo SVG với bytes không phải UTF-8
-                            # Đọc bằng latin-1 (chấp nhận mọi byte), ghi lại thành UTF-8
-                            with open(svg_path, 'rb') as f:
-                                raw_bytes = f.read()
-                            svg_text = raw_bytes.decode('latin-1')
-                            if svg_text.startswith('<?xml'):
-                                svg_text = re.sub(
-                                    r"<\?xml[^?]*\?>",
-                                    '<?xml version="1.0" encoding="UTF-8"?>',
-                                    svg_text, count=1
-                                )
-                            else:
-                                svg_text = '<?xml version="1.0" encoding="UTF-8"?>\n' + svg_text
-                            with open(svg_path, 'w', encoding='utf-8') as f:
-                                f.write(svg_text)
+                user_installation = f"-env:UserInstallation=file://{profile_dir}"
 
-                            # Bước 2: SVG → PNG (rsvg-convert từ librsvg2-bin)
-                            png_path = os.path.join(tmp_dir, base + ".png")
-                            subprocess.run(
-                                [
-                                    "rsvg-convert",
-                                    "--keep-aspect-ratio",
-                                    "--format", "png",
-                                    "--output", png_path,
-                                    svg_path
-                                ],
-                                check=True, capture_output=True, text=True, timeout=30
-                            )
+                result = subprocess.run(
+                    [
+                        "soffice",
+                        "--headless",
+                        "--invisible",
+                        "--nologo",
+                        "--nodefault",
+                        "--nofirststartwizard",
+                        "--norestore",
+                        user_installation,
+                        "--convert-to",
+                        "png",
+                        "--outdir",
+                        tmp_dir,
+                        filepath,
+                    ],
+                    capture_output=True,
+                    text=True,
+                    timeout=90,
+                    env=env,
+                )
 
-                            # Bước 3: PNG → WebP (convert từ imagemagick)
-                            subprocess.run(
-                                ["convert", png_path, "-quality", "90", webp_path],
-                                check=True, capture_output=True, text=True, timeout=30
-                            )
-                            logger.info(f"Converted {filepath} → {webp_path} via wmf2svg+rsvg-convert")
-                            return True
-                        finally:
-                            shutil.rmtree(tmp_dir, ignore_errors=True)
-                    else:
-                        subprocess.run(
-                            ["convert", filepath, "-quality", "90", webp_path],
-                            check=True, capture_output=True, text=True, timeout=30
-                        )
+                if not os.path.exists(png_path):
+                    logger.error(
+                        "soffice conversion failed for %s.\nstdout: %s\nstderr: %s",
+                        filepath,
+                        result.stdout,
+                        result.stderr,
+                    )
+                    return False
 
-                logger.info(f"Converted {filepath} to {webp_path}")
+                subprocess.run(
+                    [
+                        "convert",
+                        png_path,
+                        # Trim canvas thừa của soffice
+                        "-trim",
+                        "+repage",
+                        # Upscale 3x với Lanczos (tốt nhất cho text/line art)
+                        # soffice xuất 96 DPI → sau upscale ~288 DPI
+                        "-filter", "Lanczos",
+                        "-resize", _SOFFICE_UPSCALE,
+                        # Sharpen nhẹ sau upscale để text sắc nét hơn
+                        "-unsharp", "0x1+0.5+0",
+                        # Padding nhỏ
+                        "-bordercolor", "white",
+                        "-border", "12",
+                        # Lossless WebP để không mất chất lượng
+                        "-define", "webp:lossless=true",
+                        "-quality", "100",
+                        webp_path,
+                    ],
+                    check=True,
+                    capture_output=True,
+                    text=True,
+                    timeout=60,
+                )
                 return True
-            except subprocess.CalledProcessError as e:
-                logger.error(f"Conversion failed for {filepath}: {e.stderr}")
-                print(f"Lỗi chuyển đổi file {filepath}: {e}\nThông báo lỗi: {e.stderr}")
+
+            except subprocess.CalledProcessError as exc:
+                logger.error("ImageMagick conversion failed for %s: %s", filepath, exc.stderr)
                 return False
             except subprocess.TimeoutExpired:
-                logger.error(f"Conversion timeout for {filepath}")
-                print(f"Lỗi: Chuyển đổi {filepath} quá thời gian.")
+                logger.error("soffice conversion timeout for %s", filepath)
                 return False
-            except Exception as e:
-                logger.error(f"Unexpected error converting {filepath}: {e}")
-                print(f"Lỗi không xác định khi chuyển đổi {filepath}: {e}")
+            except Exception as exc:
+                logger.error("Unexpected soffice conversion error for %s: %s", filepath, exc)
+                return False
+            finally:
+                shutil.rmtree(tmp_dir, ignore_errors=True)
+
+        def convert_task(filepath: str, webp_path: str) -> bool:
+            ext = os.path.splitext(filepath)[1].lower()
+            try:
+                if IS_WINDOWS:
+                    if ext in [".wmf", ".emf"]:
+                        cmd = [
+                            "magick",
+                            # density cao để render vector WMF sắc nét
+                            "-density", "300",
+                            filepath,
+                            "-trim",
+                            "+repage",
+                            "-filter", "Lanczos",
+                            "-resize", "200%",
+                            "-unsharp", "0x1+0.5+0",
+                            "-bordercolor", "white",
+                            "-border", "12",
+                            "-alpha", "remove",
+                            "-define", "webp:lossless=true",
+                            "-quality", "100",
+                            webp_path,
+                        ]
+                    else:
+                        cmd = [
+                            "magick",
+                            filepath,
+                            "-define", "webp:lossless=true",
+                            "-quality", "100",
+                            webp_path,
+                        ]
+                    subprocess.run(cmd, check=True, capture_output=True, text=True, timeout=90)
+                    return True
+
+                if ext in [".wmf", ".emf"]:
+                    return _convert_wmf_with_soffice(filepath, webp_path)
+
+                # PNG/JPG/GIF → WebP lossless
+                subprocess.run(
+                    [
+                        "convert",
+                        filepath,
+                        "-define", "webp:lossless=true",
+                        "-quality", "100",
+                        webp_path,
+                    ],
+                    check=True,
+                    capture_output=True,
+                    text=True,
+                    timeout=40,
+                )
+                return True
+
+            except subprocess.CalledProcessError as exc:
+                logger.error("Conversion failed for %s: %s", filepath, exc.stderr)
+                return False
+            except subprocess.TimeoutExpired:
+                logger.error("Conversion timeout for %s", filepath)
+                return False
+            except Exception as exc:
+                logger.error("Unexpected conversion error for %s: %s", filepath, exc)
                 return False
 
-        with concurrent.futures.ThreadPoolExecutor() as executor:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
             results = list(executor.map(lambda t: convert_task(t[0], t[1]), tasks))
 
         for i, (filepath, webp_path, original_filename) in enumerate(tasks):
             if results[i]:
-                final_filename = os.path.basename(webp_path)
-                images_map[original_filename] = final_filename
+                images_map[original_filename] = os.path.basename(webp_path)
                 try:
-                    os.remove(filepath)  # Xóa file gốc
-                    logger.info(f"Deleted original file: {filepath}")
-                except OSError as e:
-                    logger.warning(f"Could not delete original file {filepath}: {e}")
-                    print(f"Không thể xóa file gốc {filepath}: {e}")
+                    os.remove(filepath)
+                except OSError as exc:
+                    logger.warning("Could not delete original file %s: %s", filepath, exc)
             else:
-                # Nếu chuyển đổi thất bại, giữ file gốc
                 images_map[original_filename] = original_filename
-                logger.warning(f"Kept original file due to conversion failure: {original_filename}")
+                logger.warning("Kept original file due to conversion failure: %s", original_filename)
 
         return images_map
